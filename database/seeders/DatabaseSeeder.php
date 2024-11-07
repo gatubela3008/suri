@@ -3,16 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Admin\Address;
-use App\Models\Admin\Canton;
 use App\Models\Admin\Capacitation;
 use App\Models\Admin\Identification;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Traits\HasRoles;
 use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\CantonSeeder;
 use App\Models\Admin\IdType;
@@ -75,9 +72,8 @@ class DatabaseSeeder extends Seeder
             Address::factory()->create([
                 'user_id' => $i,
             ]);            
-            $numbers_capacitations = rand(1, 15);
-            $capacitations = Capacitation::pagination($numbers_capacitations)->get();
-            $user->capacitations->attach($capacitations); 
         }
+
+        $this->call(UserCapacitationSeeder::class);
     }
 }
