@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\CantonSeeder;
 use App\Models\Admin\IdType;
-
-
+use App\Models\Admin\Phone;
 
 class DatabaseSeeder extends Seeder
 {
@@ -48,6 +47,9 @@ class DatabaseSeeder extends Seeder
         Identification::factory()->create([
             'user_id' => 1, 
         ]);
+        Phone::factory()->create([
+            'user_id' => 1,
+        ]);
         Address::factory()->create([
             'user_id' => 1
         ]);
@@ -56,6 +58,9 @@ class DatabaseSeeder extends Seeder
             $user = User::factory(1)->create([]);
             $user->first()->assignRole('professor');
             Identification::factory()->create([
+                'user_id' => $i,
+            ]);
+            Phone::factory()->create([
                 'user_id' => $i,
             ]);
             Address::factory()->create([
@@ -67,6 +72,9 @@ class DatabaseSeeder extends Seeder
             $user = User::factory(1)->create();
             $user->first()->assignRole('student');
             Identification::factory()->create([
+                'user_id' => $i,
+            ]);
+            Phone::factory()->create([
                 'user_id' => $i,
             ]);
             Address::factory()->create([

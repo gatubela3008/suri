@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Admin\Address;
 use App\Models\Admin\Capacitation;
 use App\Models\Admin\Identification;
+use App\Models\Admin\Phone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -78,6 +79,11 @@ class User extends Authenticatable
     public function identification() : HasOne
     {
         return $this->hasOne(Identification::class);
+    }
+
+    public function phone() : HasOne
+    {
+        return $this->hasOne(Phone::class);
     }
 
     public function address() : HasOne

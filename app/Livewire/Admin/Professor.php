@@ -7,15 +7,18 @@ use Livewire\Component;
 
 class Professor extends Component
 {
-    public $professors=null;
+    
+
+    public $search = '';
 
     public function mount()
     {
-        $this->professors = User::role('professor')->get();
+        
     }
     
     public function render()
     {
-        return view('livewire.admin.professor');
+        $professors = User::role('professor')->get();
+        return view('livewire.admin.professor', compact('professors'));
     }
 }
