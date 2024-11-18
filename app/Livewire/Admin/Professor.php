@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\User;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,6 +15,7 @@ class Professor extends Component
     public $sort = 'name';
     public $direction = 'asc';
     
+    #[On('exito')]
     public function render()
     {           
         $professors = User::role('professor')
@@ -30,8 +32,10 @@ class Professor extends Component
             ->orderBy($this->sort, $this->direction)
             ->paginate(15);
 
-        return view('livewire.admin.professor', compact('professors'));
+        return view('livewire.admin.professor', compact(['professors']));
     }
+
+    
 
     public function order($sort)
     {
@@ -40,13 +44,10 @@ class Professor extends Component
                 $this->direction = 'desc';
             } else {
                 $this->direction = 'asc';
-            }
-            
+            } 
         } else {
             $this->sort = $sort;
             $this->direction = 'asc';
-        }
-        
-        
+        }        
     }
 }

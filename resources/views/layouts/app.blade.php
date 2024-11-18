@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         
         <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
@@ -21,8 +22,6 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-
-            {{-- aqui se llaman a los distintos menus --}}
 
             @livewire('navigation-menu')
 
@@ -42,7 +41,17 @@
         </div>
 
         @stack('modals')
-
+        
         @livewireScripts
+
+        <script>
+            Livewire.on('exito', function (mensaje){
+                Swal.fire({
+                    title: "¡Buen trabajo!",
+                    text: mensaje,
+                    icon: "success"
+                });
+            })
+        </script>
     </body>
 </html>

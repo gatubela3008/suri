@@ -1,4 +1,5 @@
 <div>
+
     <x-label class="mb-1 px-3 mt-4">
         Buscar
     </x-label>
@@ -98,7 +99,8 @@
 
             @foreach ($professors as $professor)
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr wire:key='professor-{{ $professor->id }}'
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-3">
                     {{ $professor->name }}
                 </td>
@@ -138,4 +140,5 @@
     </div>
 
     @endif
+
 </div>
