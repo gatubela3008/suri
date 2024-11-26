@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1
         ]);
 
-        for ($i = 2; $i < 12; $i++) {
+        for ($i = 2; $i < 22; $i++) {
             $user = User::factory(1)->create([]);
             $user->first()->assignRole('professor');
             Identification::factory()->create([
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        for ($i = 12; $i < 113; $i++) {
+        for ($i = 22; $i < 113; $i++) {
             $user = User::factory(1)->create();
             $user->first()->assignRole('student');
             Identification::factory()->create([

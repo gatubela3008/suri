@@ -20,7 +20,7 @@ class CreateProfessor extends Component
     public $open = false;
 
     public $user;
-    
+
     public $name;
     public $email;
     public $idType_id;
@@ -36,6 +36,19 @@ class CreateProfessor extends Component
     public $residence;
     public $isStudent = false;
 
+    protected $rules = [
+        'name' => 'required|max:255',
+        'email' => 'required|max:255|email|unique:users',
+        'idType_id' => 'required|exists:id_types,id',
+        'numberId' => 'required|max:15',
+        'phone' => 'required|max:20',
+        'province_id' => 'required|exists:provinces,id',
+        'canton_id' => 'required|exists:cantons,id',
+        'district' => 'required|max:45',
+        'street' => 'max:45',
+        'residence' => 'max:45',
+    ];
+
     public function mount()
     {
         $this->idTypes = IdType::all();
@@ -45,7 +58,7 @@ class CreateProfessor extends Component
 
     public function selectCanton($province_id)
     {
-        $this->cantons = Canton::where('province_id', $province_id)->get(); 
+        $this->cantons = Canton::where('province_id', $province_id)->get();
         $this->canton_id = null;
     }
 
@@ -56,20 +69,18 @@ class CreateProfessor extends Component
 
     public function save()
     {
-        $this->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255|email|unique:users',
-            'idType_id' => 'required|exists:id_types,id',
-            'numberId' => 'required|max:15',
-            'phone' => 'required|max:20',
-            'province_id' => 'required|exists:provinces,id',
-            'canton_id' => 'required|exists:cantons,id',
-            'district' => 'required|max:45',
-            'street' => 'max:45',
-            'residence' => 'max:45',
-        ]);
+        $this->validate(
+            $this->rules,
+            [],
+            [
+                'province_id' => "provincia",
+                'idType_id' => " tipo de identificación",
+                'canton_id' => "cantón",
+                'numberId' => 'número de identificación',
+            ]
+        );
 
-        $this->user = User:: create([
+        $this->user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'email_verified_at' => now(),
@@ -99,24 +110,28 @@ class CreateProfessor extends Component
 
         Address::create([
             'district' => $this->district,
-            'street' => $this->street, 
+            'street' => $this->street,
             'residence' => $this->residence,
             'canton_id' => $this->canton_id,
             'user_id' => $this->user->id,
         ]);
 
         $this->resetForm();
-        $this->dispatch('exito', 'Profesora agregada a la base de datos')
-                ->to(Professor::class);
-        
+        $this->dispatch('create-professor');
+        $this->dispatch('exito', 'Profesora agregada a la base de datos');
     }
 
-    public function resetForm() 
-    { 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    public function resetForm()
+    {
         $this->reset([
-            'name', 
-            'email', 
-            'idType_id', 
+            'name',
+            'email',
+            'idType_id',
             'numberId',
             'phone',
             'province_id',
@@ -125,8 +140,7 @@ class CreateProfessor extends Component
             'street',
             'residence',
             'open',
-        ]); 
+        ]);
         $this->cantons = collect();
     }
-
 }
