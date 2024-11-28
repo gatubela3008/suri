@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('capacitation_user', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
 
-            $table->decimal('scholarship', 5, 2)->nullable();
+            $table->string('name', 30)->unique();
             
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('capacitation_id')->constrained()->cascadeOnDelete();
-
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('capacitation_user');
+        Schema::dropIfExists('categories');
     }
 };

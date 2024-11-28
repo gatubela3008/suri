@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Admin\Address;
-use App\Models\Admin\Capacitation;
+use App\Models\Admin\Category;
 use App\Models\Admin\Identification;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,6 +14,7 @@ use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\CantonSeeder;
 use App\Models\Admin\IdType;
 use App\Models\Admin\Phone;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -34,8 +35,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProvinceSeeder::class);
         $this->call(CantonSeeder::class);
-        $this->call(CapacitationSeeder::class);
-
+       
         // User::factory(10)->create();
 
         $user = User::factory()->create([
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        for ($i = 22; $i < 113; $i++) {
+        for ($i = 22; $i < 122; $i++) {
             $user = User::factory(1)->create();
             $user->first()->assignRole('student');
             Identification::factory()->create([
@@ -79,9 +79,13 @@ class DatabaseSeeder extends Seeder
             ]);
             Address::factory()->create([
                 'user_id' => $i,
-            ]);            
+            ]);     
+            
+            
         }
 
-        $this->call(UserCapacitationSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(CapacitationSeeder::class);
+        
     }
 }

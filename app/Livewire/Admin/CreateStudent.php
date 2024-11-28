@@ -15,7 +15,8 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Livewire;
 
-class CreateProfessor extends Component
+class CreateStudent extends Component
+
 {
     public $open = false;
 
@@ -34,8 +35,7 @@ class CreateProfessor extends Component
     public $district;
     public $street;
     public $residence;
-    public $isStudent = false;
-
+    
     protected $rules = [
         'name' => 'required|max:255',
         'email' => 'required|max:255|email|unique:users',
@@ -54,7 +54,6 @@ class CreateProfessor extends Component
         $this->idTypes = IdType::all();
         $this->provinces = Province::all();
         $this->cantons = collect();
-        
     }
 
     public function selectCanton($province_id)
@@ -65,12 +64,12 @@ class CreateProfessor extends Component
 
     public function render()
     {
-        return view('livewire.admin.create-professor');
+        return view('livewire.admin.create-student');
     }
 
     public function save()
     {
-        
+
         $this->validate(
             $this->rules,
             [],
@@ -94,10 +93,7 @@ class CreateProfessor extends Component
             'current_team_id' => null,
         ]);
 
-        $this->user->assignRole('professor');
-        if ($this->isStudent) {
-            $this->user->assignRole('student');
-        }
+        $this->user->assignRole('student');
 
         Identification::create([
             'number' => $this->numberId,
@@ -119,8 +115,8 @@ class CreateProfessor extends Component
         ]);
 
         $this->resetForm();
-        $this->dispatch('create-professor');
-        $this->dispatch('exito', 'Profesora agregada a la base de datos');
+        $this->dispatch('create-student');
+        $this->dispatch('exito', 'Alumna agregada a la base de datos');
     }
 
     public function updated($propertyName)

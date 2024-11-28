@@ -5,7 +5,6 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Admin\Address;
-use App\Models\Admin\Capacitation;
 use App\Models\Admin\Identification;
 use App\Models\Admin\Phone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -91,10 +90,10 @@ class User extends Authenticatable
         return $this->hasOne(Address::class);
     }
 
-    public function capacitations() : BelongsToMany
+    /* public function capacitations() : BelongsToMany
     {
         return $this->belongsToMany(Capacitation::class)
             ->withPivot('scholarship')
             ->withTimestamps();
-    }
+    } */
 }

@@ -1,13 +1,13 @@
 <div>
     <x-blue-button wire:click="$set('open',true)">
-        Crear Profesora
+        Crear estudiante
     </x-blue-button>
 
     <form wire:submit="save" >
 
         <x-dialog-modal wire:model='open'>
             <x-slot name='title'>
-                Formulario para registrar a una profesora
+                Formulario para registrar a una estudiante
             </x-slot>
 
             <x-slot name='content'>
@@ -100,12 +100,6 @@
                 </div>
                 <x-input-error for="residence" />
 
-                <div class="mb-2">
-                    <x-label value="¿Es estudiante?" />
-                    <x-checkbox wire:model.live='isStudent' />
-                </div>
-
-
             </x-slot>
 
             <x-slot name='footer'>
@@ -115,7 +109,7 @@
                 </x-secondary-button>
 
                 <x-green-button wire:click='save' wire:loading.attr='disable' wire:loading.remove wire:target='save'>
-                    Crear profesora
+                    Crear estudiante
                 </x-green-button>
 
                 <div class="p-2" wire:loading.delay wire:target='save'>
