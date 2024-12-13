@@ -21,6 +21,7 @@ class CategorySeeder extends Seeder
         Category::create(['name' => 'Cómputo']);
         Category::create(['name' => 'Inglés']);
         Category::create(['name' => 'Técnico']);
+        Category::create(['name' => 'Otros']);
         
     }
 }

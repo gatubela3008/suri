@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Admin\CapacitationController;
 use App\Http\Controllers\Admin\ProfessorController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\HomeController;
@@ -21,6 +21,8 @@ Route::middleware([
         ->name('admin.professor.index');
     Route::get('/admin/student', [StudentController::class, 'index'])
         ->name('admin.student.index');
+    Route::get('/admin/capacitation', [CapacitationController::class, 'index'])
+        ->name('admin.capacitation.index');
 });
 
 /* Hacer 3 entradas a tres dashboard diferentes */

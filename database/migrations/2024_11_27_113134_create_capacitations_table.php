@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('name', 60);
             $table->text('summary')->nullable();
             $table->text('description')->nullable();
-            $table->integer('prize');
-            $table->integer('registration');
-            $table->boolean('two_parts')->default(true);
+            $table->integer('price');
+            $table->integer('registration')->default(15000);
+            $table->integer('parts')->default(2);
             $table->integer('weeks_duration');
             $table->integer('number_of_month');
             $table->integer('month_payment');

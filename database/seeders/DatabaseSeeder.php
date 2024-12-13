@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\DayOfWeek;
 use App\Models\Admin\Address;
 use App\Models\Admin\Category;
 use App\Models\Admin\Identification;
@@ -14,7 +15,8 @@ use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\CantonSeeder;
 use App\Models\Admin\IdType;
 use App\Models\Admin\Phone;
-
+use App\Models\Admin\Schedule;
+use App\Shift;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,7 +37,13 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProvinceSeeder::class);
         $this->call(CantonSeeder::class);
-       
+        $this->call(ScheduleSeeder::class);
+
+        
+        
+        
+        
+
         // User::factory(10)->create();
 
         $user = User::factory()->create([

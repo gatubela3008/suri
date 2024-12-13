@@ -18,8 +18,9 @@ use Illuminate\Validation\Rule as ValidationRule;
 use Illuminate\Validation\Rules\Unique;
 use Livewire\Attributes\On;
 
-class Professor extends Component
+class ShowProfessors extends Component
 {
+
     use WithPagination;
 
     public $search;
@@ -88,7 +89,7 @@ class Professor extends Component
             ->orderBy($this->sort, $this->direction)
             ->paginate(15);
 
-        return view('livewire.admin.professor', compact(['professors']));
+        return view('livewire.admin.show-professors', compact(['professors']));
     }
 
     public function order($sort)
@@ -216,4 +217,5 @@ class Professor extends Component
     {
         $id->delete();
     }
+    
 }

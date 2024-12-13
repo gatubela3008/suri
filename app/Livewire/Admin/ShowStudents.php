@@ -17,9 +17,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule as ValidationRule;
 use Illuminate\Validation\Rules\Unique;
 use Livewire\Attributes\On;
-class Student extends Component
-{
 
+class ShowStudents extends Component
+{
     use WithPagination;
 
     public $search;
@@ -87,7 +87,7 @@ class Student extends Component
             ->orderBy($this->sort, $this->direction)
             ->paginate(15);
 
-        return view('livewire.admin.student', compact(['students']));
+        return view('livewire.admin.show-students', compact('students'));
     }
 
     public function order($sort)
@@ -120,7 +120,7 @@ class Student extends Component
         $this->resetValidation();
         $this->open_edit = true;
         $this->student = $student;
-        
+
         $this->name = $this->student->name;
         $this->email = $this->student->email;
         $this->student_id = $student->id;
@@ -139,7 +139,6 @@ class Student extends Component
         $this->street = $this->student->address->street;
         $this->residence = $this->student->address->residence;
         $this->address_id = $this->student->address->id;
-
     }
 
     public function update()

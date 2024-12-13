@@ -7,11 +7,11 @@
 
         <x-input wire:model.live='search' class="flex-1 mr-4" placeholder="Escriba el valor que quiere buscar" />
 
-        @livewire('admin.create-student')
+        @livewire('admin.create-professor')
 
     </div>
 
-    @if ($students->count())
+    @if ($professors->count())
 
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -97,26 +97,26 @@
         </thead>
         <tbody>
 
-            @foreach ($students as $student)
+            @foreach ($professors as $professor)
 
-            <tr wire:key='student-{{ $student->id }}'
+            <tr wire:key='professor-{{ $professor->id }}'
                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-3">
-                    {{ $student->name }}
+                    {{ $professor->name }}
                 </td>
                 <td class="px-6 py-3">
-                    {{ $student->email }}
+                    {{ $professor->email }}
                 </td>
                 <td class="px-6 py-3">
-                    {{ $student->identification->idType->name.'-'.$student->identification->number }}
+                    {{ $professor->identification->idType->name.'-'.$professor->identification->number }}
                 </td>
                 <td class="px-6 py-3">
-                    {{ $student->phone->number }}
+                    {{ $professor->phone->number }}
                 </td>
                 <td class="px-6 py-3">
                     <div>
 
-                        <x-green-button wire:click="edit({{ $student }})" title="Editar" class="">
+                        <x-green-button wire:click="edit({{ $professor }})" title="Editar" class="">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4 -m-1">
@@ -126,7 +126,7 @@
 
                         </x-green-button>
 
-                        <x-danger-button wire:click="$dispatch('seguroEstudiante',{{$student->id}})">
+                        <x-danger-button wire:click="$dispatch('seguroprofesor',{{$professor->id}})" title="Borrar">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4 -m-1">
@@ -146,7 +146,7 @@
         </tbody>
     </table>
     <div class="px-6 py-4">
-        {{ $students->links() }}
+        {{ $professors->links() }}
     </div>
 
     @else
@@ -163,7 +163,7 @@
 
     <x-dialog-modal wire:model='open_edit'>
         <x-slot name='title'>
-            Formulario para actualizar los datos de una estudiantea
+            Formulario para actualizar los datos de una profesora
         </x-slot>
 
         <x-slot name='content'>
@@ -198,7 +198,7 @@
                 </div>
 
                 <div class="mb-2">
-                    <x-label value="Numero de identificación" />
+                    <x-label value="Número de identificación" />
                     <x-input class="w-full" max='15' required wire:model.live='numberId' />
                     <x-input-error for="numberId" />
                 </div>
@@ -255,8 +255,14 @@
                 <div class="mb-2">
                     <x-label value="Residencia" />
                     <x-input class="w-full" max='45' wire:model.live='residence' />
+                    <x-input-error for="residence" />
                 </div>
-                <x-input-error for="residence" />
+                
+
+                <div class="mb-2">
+                    <x-label value="¿Es estudiante?" />
+                    <x-checkbox wire:model.live='isStudent' />
+                </div>
 
             </form>
         </x-slot>
@@ -280,7 +286,7 @@
 
     @push('js')
     <script>
-        Livewire.on('seguroEstudiante', function(studentId) {
+        Livewire.on('seguroprofesor', function(professorId) {
             Swal.fire({
                     title: "¿Está seguro?",
                     text: "¡Esta acción no se puede revertir!",
@@ -292,10 +298,10 @@
                     cancelButtonText: "Cancelar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Livewire.dispatch("deleteStudent", { "id": studentId })
+                        Livewire.dispatch("deleteProfessor", { "id": professorId })
                         Swal.fire({
                             title: "¡Borrado!",
-                            text: "El registro de la estudiante ha sido borrado",
+                            text: "El registro de la profesora ha sido borrado",
                             icon: "success"
                         });
                     }

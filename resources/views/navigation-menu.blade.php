@@ -18,7 +18,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @role('admin')
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{ route('admin.capacitation.index') }}" :active="request()->routeIs('admin.capacitation.index')">
                         {{ __('Capacitations') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.student.index') }}" :active="request()->routeIs('admin.student.index')">
