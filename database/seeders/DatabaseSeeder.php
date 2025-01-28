@@ -39,11 +39,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CantonSeeder::class);
         $this->call(ScheduleSeeder::class);
 
-        
-        
-        
-        
-
         // User::factory(10)->create();
 
         $user = User::factory()->create([

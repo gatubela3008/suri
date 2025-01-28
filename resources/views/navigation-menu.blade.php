@@ -21,6 +21,9 @@
                     <x-nav-link href="{{ route('admin.capacitation.index') }}" :active="request()->routeIs('admin.capacitation.index')">
                         {{ __('Capacitations') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.schedule.capacitation.index') }}" :active="request()->routeIs('admin.schedule.capacitation.index')">
+                        {{ __('Schedules') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('admin.student.index') }}" :active="request()->routeIs('admin.student.index')">
                         {{ __('Students') }}
                     </x-nav-link>

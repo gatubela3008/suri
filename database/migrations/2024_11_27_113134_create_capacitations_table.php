@@ -21,8 +21,6 @@ return new class extends Migration
             $table->integer('registration')->default(15000);
             $table->integer('parts')->default(2);
             $table->integer('weeks_duration');
-            $table->integer('number_of_month');
-            $table->integer('month_payment');
             $table->string('requirements')->nullable();
 
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();

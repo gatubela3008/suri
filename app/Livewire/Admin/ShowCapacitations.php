@@ -29,12 +29,10 @@ class ShowCapacitations extends Component
     public $name;
     public $summary;
     public $description;
-    public $prize;
+    public $price;
     public $registration = 15000;
     public $parts = true;
     public $weeks_duration;
-    public $number_of_month;
-    public $month_payment;
     public $requirements;
 
     protected $rules = [
@@ -42,12 +40,10 @@ class ShowCapacitations extends Component
         'name' => 'required|max:60',
         'summary' => 'max:500',
         'description' => 'max:2000',
-        'prize' => 'required|integer|min:5000|max:250000',
-        'registration' => 'required|integer|min:5000|max:30000',
+        'price' => 'required|integer|min:5000|max:250000',
+        'registration' => 'required|integer|min:5000|max:50000',
         'parts' => 'required|numeric|min:1',
         'weeks_duration' => 'required|integer|min:1|max:160',
-        'number_of_month' => 'required|integer|min:1|max:37',
-        'month_payment' => 'required|integer',
         'requirements' => 'max:255',        
     ];
 
@@ -101,13 +97,11 @@ class ShowCapacitations extends Component
         $this->name = $this->capacitation->name;
         $this->summary = $this->capacitation->summary;
         $this->description = $this->capacitation->description;
-        $this->prize = $this->capacitation->prize;
+        $this->price = $this->capacitation->price;
         $this->registration = $this->capacitation->registration;
         $this->parts = $this->capacitation->parts;
         $this->weeks_duration = $this->capacitation->weeks_duration;
-        $this->number_of_month = $this->capacitation->number_of_month;
-        $this->month_payment = $this->capacitation->month_payment;
-        $this->requirements = $this->capacitation->requirements;
+         $this->requirements = $this->capacitation->requirements;
         $this->capacitation_id = $this->capacitation->id;
         $this->category = $this->capacitation->category;
         $this->category_id = $this->capacitation->category->id;
@@ -124,12 +118,10 @@ class ShowCapacitations extends Component
                 'name' => "nombre",
                 'summary' => "resumen",
                 'description' => "descripción",
-                'prize' => "costo",
+                'price' => "costo",
                 'registration' => "matrícula",
                 'parts' => "¿en dos partes?",
                 'weeks_duration' => "semanas de duración",
-                'number_of_month' => "número de meses",
-                'month_payment' => "pago mensual",
                 'requirements' => "requerimientos",
             ]
         );
@@ -151,12 +143,10 @@ class ShowCapacitations extends Component
             'name',
             'summary',
             'description',
-            'prize',
+            'price',
             'registration',
             'parts',
             'weeks_duration',
-            'number_of_month',
-            'month_payment',
             'requirements',
             'open_edit',
         ]);

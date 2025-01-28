@@ -7,8 +7,6 @@
 
         <x-input wire:model.live='search' class="flex-1 mr-4" placeholder="Escriba el valor que quiere buscar" />
 
-        @livewire('admin.create-capacitation')
-
     </div>
 
     @if ($capacitations->count())
@@ -17,11 +15,11 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr scope="col" class="p-4">
                 <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3"
-                wire:click="order('category_id')">
+                    wire:click="order('category_id')">
                     <span>
                         Categoría
-                    </span>     
-                    
+                    </span>
+
                     @if ($sort == 'category_id')
 
                     @if ($direction == 'asc')
@@ -85,78 +83,11 @@
                     @endif
 
                 </td>
-                <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3"
-                    wire:click="order('summary')">
-                    <span>
-                        Resumen
-                    </span>
 
-                    @if ($sort == 'summary')
-
-                    @if ($direction == 'asc')
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="float-right size-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-                    </svg>
-
-                    @else
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="float-right size-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-                    </svg>
-
-                    @endif
-
-                    @else
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-3 float-right">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
-                    </svg>
-
-                    @endif
-
-                </td>                
-                
-                <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3"
-                    wire:click="order('requirements')">
-                    <span>
-                        Requerimientos
-                    </span>
-
-                    @if ($sort == 'requirements')
-
-                    @if ($direction == 'asc')
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="float-right size-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-                    </svg>
-
-                    @else
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="float-right size-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-                    </svg>
-
-                    @endif
-
-                    @else
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-3 float-right">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
-                    </svg>
-
-                    @endif
-
+                <td scope="col" class="justify-between items-center px-6 py-3">
+                    Acciones
                 </td>
-                <td scope="col" class="justify-between items-center px-6 py-3">Acciones</td>
+
             </tr>
         </thead>
         <tbody>
@@ -172,12 +103,6 @@
                     {{ $capacitation->name }}
                 </td>
                 <td class="px-6 py-3">
-                    {{ $capacitation->summary }}
-                </td>
-                <td class="px-6 py-3">
-                    {{ $capacitation->requirements }}
-                </td>
-                <td class="px-6 py-3">
                     <div>
 
                         <x-green-button wire:click="edit({{ $capacitation }})" title="Editar" class="">
@@ -190,7 +115,7 @@
 
                         </x-green-button>
 
-                        <x-danger-button wire:click="$dispatch('seguroEstudiante',{{$capacitation->id}})" title="Borrar">
+                        <x-danger-button wire:click="$dispatch('seguroCapacitacion',{{$capacitation->id}})" title="Borrar">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4 -m-1">
@@ -227,7 +152,7 @@
 
     <x-dialog-modal wire:model='open_edit'>
         <x-slot name='title'>
-            Formulario para actualizar los datos de una estudiante
+            Formulario para asignar horario(s) a una capacitación
         </x-slot>
 
         <x-slot name='content'>
@@ -236,79 +161,63 @@
 
                 <div class="form-group">
                     <x-label value="Categoría" />
-                    <x-select required wire:model.live="category_id" id="category_id" class="w-full mb-2 form-control">
-                        <option value=null disabled>
-                            Seleccione una opción
-                        </option>
-                        @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ $category->id == $category_id ? "selected='selected'" : '' }} >
-                            {{ $category->name }}
-                        </option>
-                        @endforeach
-                    </x-select>
+                    <x-input class="w-full form-control"  required='required' wire:model.live='category' />
                     <x-input-error for="category_id" />
                 </div>
 
                 <div class="mb-2">
                     <x-label value="Nombre" />
-                    <x-input class="w-full form-control" required max='255' wire:model.live='name' />
+                    <x-input class="w-full form-control"  required='required' wire:model.live='name' />
                     <x-input-error for="name" />
                 </div>
 
                 <div class="mb-2">
                     <x-label value="Resumen" />
-                    <x-textarea class="w-full" max='500' wire:model.live='summary'>{{ $summary }}</x-textarea>
+                    <x-textarea class="w-full"  wire:model.live='summary'>{{ $summary }}</x-textarea>
                     <x-input-error for="summary" />
-                </div>                
+                </div>
 
                 <div class="mb-2">
                     <x-label value="Descripción" />
-                    <x-textarea class="w-full" wire:model.live='description'>{{ $description }}</x-textarea>
+                    <x-textarea class="w-full"  wire:model.live='description'>{{ $description }}</x-textarea>
                     <x-input-error for="description" />
-                </div>                
-
-                <div class="mb-2">
-                    <x-label value="Precio" />
-                    <x-input class="w-full" type='number' step='1' max='250000' required wire:model.live='prize' />
-                    <x-input-error for="prize" />
-                </div>
-
-                <div class="mb-2">
-                    <x-label value="Matrícula" />
-                    <x-input class="w-full" type='number' step='1' max='30000' required wire:model.live='registration' />
-                    <x-input-error for="registration" />
-                </div>
-
-                <div class="mb-2">
-                    <x-label value="¿En cuántas partes?" />
-                    <x-input class="w-full" min='1' type='number' step='1' required wire:model.live='parts' />
-                    <x-input-error for="parts" />
                 </div>
 
                 <div class="mb-2">
                     <x-label value="Semanas de duración" />
-                    <x-input class="w-full" type='number' step='1' min='1' max='160' wire:model.live='weeks_duration' />
+                    <x-input class="w-full" type='number'  required='required' wire:model.live='weeks_duration' />
                     <x-input-error for="weeks_duration" />
                 </div>
 
                 <div class="mb-2">
-                    <x-label value="Meses de duración" />
-                    <x-input class="w-full" type='number' step='1' min='1' max='37' wire:model.live='number_of_month' />
-                    <x-input-error for="number_of_month" />
+                    <x-label value="Precio" />
+                    <x-input class="w-full form-control" type='number' min='5000' max='250000' step='100' required='required' wire:model.live='price' />
+                    <x-input-error for="price" />
                 </div>
 
                 <div class="mb-2">
-                    <x-label value="Pago mensual" />
-                    <x-input class="w-full" type='number' step='1' min='1' max='37' wire:model.live='month_payment' />
-                    <x-input-error for="month_payment" />
+                    <x-label value="Matrícula" />
+                    <x-input class="w-full form-control" type='number' min='5000' max='50000' step='100' required='required' wire:model.live='registration' />
+                    <x-input-error for="registration" />
                 </div>
 
                 <div class="mb-2">
-                    <x-label value="Requisitos" />
-                    <x-input class="w-full" max='255' wire:model.live='requirements' />
+                    <x-label value="Partes de pago (matrícula)" />
+                    <x-input class="w-full form-control" type='number' min='1' max='10' step='1' required='required' wire:model.live='parts' />
+                    <x-input-error for="parts" />
+                </div>
+
+                <div class="mb-2">
+                    <x-label value="Semanas" />
+                    <x-input class="w-full form-control" type='number' min='1' max='104' step='1' required='required' wire:model.live='weeks_duration' />
+                    <x-input-error for="weeks_duration" />
+                </div>
+
+                <div class="mb-2">
+                    <x-label value="Requerimientos" />
+                    <x-input class="w-full form-control"  wire:model.live='requirements' />
                     <x-input-error for="requirements" />
                 </div>
-                
 
             </form>
         </x-slot>
@@ -329,7 +238,7 @@
 
         </x-slot>
     </x-dialog-modal>
- 
+
 
     @push('js')
     <script>
@@ -357,6 +266,5 @@
     </script>
     @endpush
 
+
 </div>
-
-

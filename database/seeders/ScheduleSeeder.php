@@ -15,281 +15,60 @@ class ScheduleSeeder extends Seeder
     {
         // Lunes
         Schedule::create([
-            'day_of_week' => 'Lunes',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 0,
-            'end_hour' => 8,
-            'end_minute' => 30, 
+            'schedule' => 'Lunes - Mañana',
         ]);
         Schedule::create([
-            'day_of_week' => 'Lunes',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 30,
-            'end_hour' => 12,
-            'end_minute' => 0, 
+            'schedule' => 'Lunes - Tarde',
         ]);
         Schedule::create([
-            'day_of_week' => 'Lunes',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 0,
-            'end_hour' => 13,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Lunes',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 30,
-            'end_hour' => 16,
-            'end_minute' => 0, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Lunes',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 0,
-            'end_hour' => 17,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Lunes',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 30,
-            'end_hour' => 20,
-            'end_minute' => 30, 
+            'schedule' => 'Lunes - Noche',
         ]);
         // Martes
         Schedule::create([
-            'day_of_week' => 'Martes',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 0,
-            'end_hour' => 8,
-            'end_minute' => 30, 
+            'schedule' => 'Martes - Mañana',
         ]);
         Schedule::create([
-            'day_of_week' => 'Martes',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 30,
-            'end_hour' => 12,
-            'end_minute' => 0, 
+            'schedule' => 'Martes - Tarde',
         ]);
         Schedule::create([
-            'day_of_week' => 'Martes',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 0,
-            'end_hour' => 13,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Martes',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 30,
-            'end_hour' => 16,
-            'end_minute' => 0, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Martes',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 0,
-            'end_hour' => 17,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Martes',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 30,
-            'end_hour' => 20,
-            'end_minute' => 30, 
+            'schedule' => 'Martes - Noche',
         ]);
         // Miércoles
         Schedule::create([
-            'day_of_week' => 'Miércoles',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 0,
-            'end_hour' => 8,
-            'end_minute' => 30, 
+            'schedule' => 'Miércoles - Mañana',
         ]);
         Schedule::create([
-            'day_of_week' => 'Miércoles',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 30,
-            'end_hour' => 12,
-            'end_minute' => 0, 
+            'schedule' => 'Miércoles - Tarde',
         ]);
         Schedule::create([
-            'day_of_week' => 'Miércoles',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 0,
-            'end_hour' => 13,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Miércoles',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 30,
-            'end_hour' => 16,
-            'end_minute' => 0, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Miércoles',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 0,
-            'end_hour' => 17,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Miércoles',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 30,
-            'end_hour' => 20,
-            'end_minute' => 30, 
+            'schedule' => 'Miércoles - Noche',
         ]);
         // Jueves
         Schedule::create([
-            'day_of_week' => 'Jueves',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 0,
-            'end_hour' => 8,
-            'end_minute' => 30, 
+            'schedule' => 'Jueves - Mañana',
         ]);
         Schedule::create([
-            'day_of_week' => 'Jueves',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 30,
-            'end_hour' => 12,
-            'end_minute' => 0, 
+            'schedule' => 'Jueves - Tarde',
         ]);
         Schedule::create([
-            'day_of_week' => 'Jueves',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 0,
-            'end_hour' => 13,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Jueves',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 30,
-            'end_hour' => 16,
-            'end_minute' => 0, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Jueves',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 0,
-            'end_hour' => 17,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Jueves',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 30,
-            'end_hour' => 20,
-            'end_minute' => 30, 
+            'schedule' => 'Jueves - Noche',
         ]);
         // Viernes
         Schedule::create([
-            'day_of_week' => 'Viernes',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 0,
-            'end_hour' => 8,
-            'end_minute' => 30, 
+            'schedule' => 'Viernes - Mañana',
         ]);
         Schedule::create([
-            'day_of_week' => 'Viernes',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 30,
-            'end_hour' => 12,
-            'end_minute' => 0, 
+            'schedule' => 'Viernes - Tarde',
         ]);
         Schedule::create([
-            'day_of_week' => 'Viernes',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 0,
-            'end_hour' => 13,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Viernes',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 30,
-            'end_hour' => 16,
-            'end_minute' => 0, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Viernes',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 0,
-            'end_hour' => 17,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Viernes',
-            'shift' => 'Noche',
-            'start_hour' => 17,
-            'start_minute' => 30,
-            'end_hour' => 20,
-            'end_minute' => 30, 
+            'schedule' => 'Viernes - Noche',
         ]);
         // Sábado
         Schedule::create([
-            'day_of_week' => 'Sábado',
-            'shift' => 'Mañana',
-            'start_hour' => 8,
-            'start_minute' => 30,
-            'end_hour' => 9,
-            'end_minute' => 0, 
+            'schedule' => 'Sábado - Mañana',
         ]);
         Schedule::create([
-            'day_of_week' => 'Sábado',
-            'shift' => 'Mañana',
-            'start_hour' => 9,
-            'start_minute' => 0,
-            'end_hour' => 12,
-            'end_minute' => 0, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Sábado',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 0,
-            'end_hour' => 13,
-            'end_minute' => 30, 
-        ]);
-        Schedule::create([
-            'day_of_week' => 'Sábado',
-            'shift' => 'Tarde',
-            'start_hour' => 13,
-            'start_minute' => 30,
-            'end_hour' => 16,
-            'end_minute' => 0, 
+            'schedule' => 'Sábado - Tarde',
         ]);
     }
 }

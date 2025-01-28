@@ -15,7 +15,7 @@ class Schedule extends Model
     public function capacitations() : BelongsToMany
     { 
         return $this->belongsToMany(Capacitation::class) 
-            ->withPivot('start_date', 'edition_name') 
+            ->withPivot('start_date', 'edition') 
             ->withTimestamps(); 
     }
 

@@ -16,13 +16,8 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
 
-            $table->string('day_of_week'); 
-            $table->string('shift');
-            $table->integer('start_hour')->nullable();
-            $table->integer('start_minute')->nullable();
-            $table->integer('end_hour')->nullable();
-            $table->integer('end_minute')->nullable();            
-
+            $table->string('schedule');             
+            
             $table->timestamps();
         });
     }
