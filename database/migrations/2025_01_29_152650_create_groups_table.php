@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registration_payments', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('part');
-            $table->integer('mount');
-            $table->date('payment_day');
-            $table->text('observations')->nullable();
-
-            $table->foreignId('inscription_id')->constrained()->cascadeOnDelete();
-
+            $table->string('group_name', 60)->default('Único');
+            $table->foreignId('capacitation_id')->constrained()->cascadeOnDelete();
+            
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registration_payments');
+        Schema::dropIfExists('groups');
     }
 };

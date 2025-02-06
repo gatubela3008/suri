@@ -18,21 +18,19 @@ class Capacitation extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function schedules() : BelongsToMany
-    { 
-        return $this->belongsToMany(Schedule::class) 
-            ->withPivot('start_date', 'edition') 
-            ->withTimestamps(); 
+    public function schedules() : HasManyThrough
+    {
+        return $this->hasManyThrough(Schedule::class, Group::class);
     }
 
-    public function inscriptions() : HasMany
+    public function inscriptions() : HasManyThrough
     {
-        return $this->hasMany(Inscription::class);
+        return $this->hasManyThrough(Inscription::class, Group::class);
     }
-
-    public function users() : HasManyThrough
+    
+    public function groups() : HasMany
     {
-        return $this->hasManyThrough(User::class, Inscription::class);
+        return $this->hasMany(Group::class);
     }
 
 }

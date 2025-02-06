@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('capacitations', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name', 60);
+            $table->string('capacitation_name');
             $table->text('summary')->nullable();
             $table->text('description')->nullable();
             $table->integer('price');

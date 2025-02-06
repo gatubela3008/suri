@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('inscriptions', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('schedule_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('capacitation_id')->constrained()->cascadeOnDelete();
             $table->decimal('scholarship');
             $table->date('inscription_date');
 

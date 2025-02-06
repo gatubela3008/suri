@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\CapacitationController;
+use App\Http\Controllers\Admin\CapacitationStudentController;
+use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Admin\ProfessorController;
 use App\Http\Controllers\Admin\ScheduleCapacitationController;
 use App\Http\Controllers\Admin\ScheduleController;
@@ -26,8 +28,12 @@ Route::middleware([
         ->name('admin.student.index');
     Route::get('/admin/capacitation', [CapacitationController::class, 'index'])
         ->name('admin.capacitation.index');
-    Route::get('/admin/schedule/capacitacion', [ScheduleCapacitationController::class, 'index'])
-        ->name('admin.schedule.capacitation.index');
+    Route::get('/admin/group', [GroupController::class, 'index'])
+        ->name('admin.group.index');
+    /* Route::get('/admin/schedule/capacitacion', [ScheduleCapacitationController::class, 'index'])
+        ->name('admin.schedule.capacitation.index'); */
+    /* Route::get('/admin/capacitation-student.index', [CapacitationStudentController::class, 'index'])
+        ->name('admin.capacitation-student.index'); */
 });
 
 /* Hacer 3 entradas a tres dashboard diferentes */

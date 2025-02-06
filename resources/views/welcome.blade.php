@@ -23,8 +23,8 @@
         <div class="bg-gray-50 text-black/50">
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">
+                    <header class="grid grid-cols-2 items-center gap-2 py-2">
+                        <div class="flex lg:justify-left lg:col-start-1">
                             <img h-12 w-auto src="{{ asset('img/Logotipo Suri trabajo mini.png') }}" alt="">
                             
                         </div>
@@ -52,8 +52,8 @@
                         @endif
                     </header>
 
-                    <div class="max-w-7xl mx-auto p-14 lg:m-14">
-                        <div class="flex justify-center mt-6">
+                    <div class="max-w-7xl mx-auto p-2 lg:m-14">
+                        <div class="flex justify-center mt-2">
                             <img src="{{ asset('img/Portada Sistema.jpg') }}" alt="">
                         </div>
         
