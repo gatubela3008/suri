@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin\Capacitation;
 use App\Models\Admin\Category;
+use App\Models\Admin\Group;
+use App\Models\Admin\Schedule;
+use App\Models\Admin\Subject;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,9 +28,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 24,
             'requirements' => 'Costura básica',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 24,
+            'price' => 60000 / 4 * 24,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 2
         $capacitation = $category->capacitations()->create([
@@ -37,9 +47,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 12,
             'requirements' => 'Costura básica',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 12,
+            'price' => 60000 / 4 * 12,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 3
         $capacitation = $category->capacitations()->create([
@@ -50,9 +66,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => 'Introducción al manejo de máquinas',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 4
         $capacitation = $category->capacitations()->create([
@@ -63,9 +85,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 12,
             'requirements' => 'Costura básica',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 12,
+            'price' => 60000 / 4 * 12,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 5
         $capacitation = $category->capacitations()->create([
@@ -76,9 +104,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 24,
             'requirements' => 'Costura vinyl Principiante.',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 24,
+            'price' => 60000 / 4 * 24,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 6
         $capacitation = $category->capacitations()->create([
@@ -89,9 +123,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => 'Costura básica',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 7
         $capacitation = $category->capacitations()->create([
@@ -102,9 +142,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => 'Patronaje básico',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 8
         $capacitation = $category->capacitations()->create([
@@ -115,9 +161,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 12,
             'requirements' => 'Inrtoducción al manejo de máquinas',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 12,
+            'price' => 60000 / 4 * 12,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 9
         $capacitation = $category->capacitations()->create([
@@ -128,9 +180,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => 'Patronaje básico',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 10
         $capacitation = $category->capacitations()->create([
@@ -141,9 +199,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => 'Patronaje básico',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
         $category = Category::where('category_name', 'Gastronomía')->first();
@@ -157,11 +221,16 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
         ]);
-        // 2
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Transformaciones y reparaciones en ropa',
             'price' => 60000 / 4 * 24,
@@ -170,9 +239,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 24,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 24,
+            'price' => 60000 / 4 * 24,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 3
         $capacitation = $category->capacitations()->create([
@@ -183,9 +258,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 4
         $capacitation = $category->capacitations()->create([
@@ -196,9 +277,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 4,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 5
         $capacitation = $category->capacitations()->create([
@@ -209,9 +296,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
         $category = Category::where('category_name', 'Belleza')->first();
@@ -225,9 +318,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 24,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 24,
+            'price' => 60000 / 4 * 24,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 2
         $capacitation = $category->capacitations()->create([
@@ -238,9 +337,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 24,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 24,
+            'price' => 60000 / 4 * 24,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
         $category = Category::where('category_name', 'Técnico Belleza')->first();
@@ -254,9 +359,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 2
         $capacitation = $category->capacitations()->create([
@@ -267,9 +378,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => 'Manicura profesional',
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 3
         $capacitation = $category->capacitations()->create([
@@ -280,9 +397,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
         $category = Category::where('category_name', 'Cómputo')->first();
@@ -296,9 +419,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 2
         $capacitation = $category->capacitations()->create([
@@ -309,9 +438,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 12,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 12,
+            'price' => 60000 / 4 * 12,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
         $category = Category::where('category_name', 'Inglés')->first();
@@ -325,9 +460,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 2
         $capacitation = $category->capacitations()->create([
@@ -338,9 +479,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => "Examen de ubicación",
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 3
         $capacitation = $category->capacitations()->create([
@@ -351,9 +498,15 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         // 4
         $capacitation = $category->capacitations()->create([
@@ -364,14 +517,20 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
         $category = Category::where('category_name', 'Técnico')->first();
 
-        // 1
+        // 1.1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Asistente administrativo y asistente contable',
             'price' => 80000 / 4 * 74,
@@ -380,284 +539,391 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 74,
             'requirements' => "Bachillerato",
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Inglés',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 20,
+            'price' => 60000 / 4 * 20,
         ]);
-        // 1.1.1
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Computación',
-            'price' => 20000 * 36,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 36,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.2
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Contabilidad',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 12,
+            'price' => 60000 / 4 * 12,
         ]);
-        // 1.1.2
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Inglés',
-            'price' => 20000 * 20,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 20,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.3
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Administración General',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 12,
+            'price' => 60000 / 4 * 12,
         ]);
-        // 1.1.3
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Contabilidad',
-            'price' => 20000 * 12,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 12,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.4
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Planificación estratégica',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.4
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Administración General',
-            'price' => 20000 * 12,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 12,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.5
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Liderazgo',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.5
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Planificación estratégica',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.6
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Administración bancaria',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.6
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Liderazgo',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.7
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Finanzas',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.7
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Administración bancaria',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.8
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Presupuesto',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.8
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Finanzas',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.9
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Salud ocupacional',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.9
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Presupuesto',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.10
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Control de inventario',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.10
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Salud ocupacional',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.11
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Auditoría y control interno',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.11
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Control de inventario',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.12
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Mercadeo y servicio al cliente',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.12
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Auditoría y control interno',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.13
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Legislación laboral',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.13
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Mercadeo y servicio al cliente',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.14
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Estadística',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.14
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Legislación laboral',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.15
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Seminario de ética',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
         ]);
-        // 1.1.15
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Estadística',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.16
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Seminario de ética y protocolo',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
         ]);
-        // 1.1.16
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Seminario de ética',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.17
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Pasantía',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 6,
+            'price' => 60000 / 4 * 6,
         ]);
-        // 1.1.17
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Seminario de etiqueta y protocolo',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.18
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Legislación tributaria',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 4,
+            'price' => 60000 / 4 * 4,
         ]);
-        // 1.1.18
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente administrativo - Pasantía',
-            'price' => 20000 * 6,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 6,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.19
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Metodología de la investigación',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 60000 / 4 * 36,
         ]);
-        // 1.2.1
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente contable - Legislación tributaria',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
+        $group = $subject->groups()->create([
             'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
+            'subject_id' => $subject->id,
         ]);
-        // 1.2.2
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente contable - Metología de la investigación',
-            'price' => 20000 * 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 4,
-            'requirements' => "Bachillerato",
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 2
+
+        $category = Category::where('category_name', 'Técnico Asistente del Adulto Mayor')->first();
+
+        //2.1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Asistente al adulto mayor',
-            'price' => 20000 * 28,
+            'price' => 80000 * 52 / 4,
             'registration' => 15000,
             'parts' => 2,
-            'weeks_duration' => 28,
+            'weeks_duration' => 26,
             'requirements' => null,
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Cuidados básicos al adulto mayor I y II',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 14,
+            'price' => 60000 / 4 * 14,
         ]);
-        
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.2
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Introducción a los conceptos de la vejez y el envajacimiento',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 6,
+            'price' => 60000 / 4 * 6,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.3
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Abordaje del adulto mayor con deterioro cognitivo y síndromes demenciales',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 8,
+            'price' => 60000 / 4 * 8,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.4
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Nutrición',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.5
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Ética - Cuidadores, autocuidado y salud mental',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.6
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Ética - Promoción del envejecimiento saludable',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.7
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Proyecto de graduación',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.8
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Odontología',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.9
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Primeros auxilios I',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.10
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Primeros auxilios II',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.11
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Seminario I',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 1,
+            'price' => 60000 / 4 * 1,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.12
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Seminario II',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.13
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'HB - Seminario III',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 1.14
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Ética - Seminario',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+        // 2.15
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Ética - Seminario cristiano de la muerte',
+            'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 5,
+            'price' => 60000 / 4 * 5,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
+        ]);
+                
         $category = Category::where('category_name', 'Otros')->first();
 
         // 1
@@ -669,221 +935,43 @@ class CapacitationSeeder extends Seeder
             'weeks_duration' => 0,
             'requirements' => "",
         ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
+        $subject = $capacitation->subjects()->create([
+            'subject_name' => 'Única',
             'capacitation_id' => $capacitation->id,
+            'estimated_weeks' => 36,
+            'price' => 0,
+        ]);
+        $group = $subject->groups()->create([
+            'group_name' => 'Único',
+            'subject_id' => $subject->id,
         ]);
         
-        $category = Category::where('category_name', 'Técnico Asistente del Adulto Mayor')->first();
-
-        //1
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Asistente al adulto mayor',
-            'price' => 80000 * 52 / 4,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 26,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.1
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Cuidados básicos del adulto mayor I y II',
-            'price' => 20000 * 14,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 14,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.2
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Ética - Introducción a los conceptos de vejez y envejecimiento',
-            'price' => 20000 * 6,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 6,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.3
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Ética - Abordaje del adulto mayor con deterioro cognitivo y síndromes demenciales',
-            'price' => 20000 * 8,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 8,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.4
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Nutrición',
-            'price' => 20000 * 5,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 5,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.5
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Ética - Cuidadores, autocuidado y salud mental',
-            'price' => 20000 * 5,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 5,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.6
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Ética - Promoción del envejecimiento saludable',
-            'price' => 20000 * 5,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 5,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.7
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Proyecto de graduación',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.8
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Odonotología',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.9
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Primeros auxilios I',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.10
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Primeros auxilios II',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.11
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Seminario I',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.12
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Seminario II',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.13
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'HB - Seminario III',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.14
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Ética - Seminario',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
-        // 1.15
-        $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Ética - Seminario cristiano de la muerte',
-            'price' => 20000 * 1,
-            'registration' => 15000,
-            'parts' => 2,
-            'weeks_duration' => 1,
-            'requirements' => null,
-        ]);
-        $group = $capacitation->groups()->create([
-            'group_name' => 'Único',
-            'capacitation_id' => $capacitation->id,
-        ]);
+        /**
+         * Datos de prueba
+         */
         
+        $subjects = Subject::all();
+        foreach ($subjects as $subject) {
+            $number = rand(1, 3);
+            for ($i = 0; $i < $number; $i++) {
+                $group = $subject->groups()->create([
+                    'group_name' => 'Grupo ' . $i,
+                    'subject_id' => $subject->id,
+                ]);
+            }
+        }
+        
+        $groups = Group::all();
+        foreach ($groups as $group) {
+            $schedules = rand(1, 3);
+            $schedule = [];
+            for ($j = 0; $j < $schedules; $j++) {
+                $schedule[] = Schedule::all()->random()->id;                
+            }
+            $group->schedules()->syncWithPivotValues($schedule, [
+                'start_date' => '2025-01-01',
+                'edition' => 'Edición ' . $j,
+            ]);
+        }
     }
 }

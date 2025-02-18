@@ -17,6 +17,9 @@ return new class extends Migration
             $table->decimal('scholarship');
             $table->date('inscription_date');
 
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('group_id')->constrained()->cascadeOnDelete();
+
             $table->timestamps();
         });
     }

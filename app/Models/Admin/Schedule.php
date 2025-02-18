@@ -20,14 +20,9 @@ class Schedule extends Model
             ->withTimestamps(); 
     }
 
-    public function inscriptions () : HasManyThrough
+    public function inscriptions() : HasManyThrough
     {
         return $this->hasManyThrough(Inscription::class, Group::class);
-    }
-
-    public function capacitations () : HasManyThrough
-    {
-        return $this->hasManyThrough(Capacitation::class, Group::class);
     }
     
 }

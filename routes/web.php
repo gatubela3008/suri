@@ -3,11 +3,14 @@
 use App\Http\Controllers\Admin\CapacitationController;
 use App\Http\Controllers\Admin\CapacitationStudentController;
 use App\Http\Controllers\Admin\GroupController;
+use App\Http\Controllers\Admin\InscriptionController;
 use App\Http\Controllers\Admin\ProfessorController;
 use App\Http\Controllers\Admin\ScheduleCapacitationController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\HomeController;
+use App\Models\Admin\Subject;
 use Illuminate\Console\Scheduling\ScheduleListCommand;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +31,13 @@ Route::middleware([
         ->name('admin.student.index');
     Route::get('/admin/capacitation', [CapacitationController::class, 'index'])
         ->name('admin.capacitation.index');
+    Route::get('/admin/subject', [SubjectController::class, 'index'])
+        ->name('admin.subject.index');
     Route::get('/admin/group', [GroupController::class, 'index'])
         ->name('admin.group.index');
-    /* Route::get('/admin/schedule/capacitacion', [ScheduleCapacitationController::class, 'index'])
+    /* Route::get('/admin/inscription', [InscriptionController::class, 'index'])
+        ->name('admin.inscription.index');
+     *//* Route::get('/admin/schedule/capacitacion', [ScheduleCapacitationController::class, 'index'])
         ->name('admin.schedule.capacitation.index'); */
     /* Route::get('/admin/capacitation-student.index', [CapacitationStudentController::class, 'index'])
         ->name('admin.capacitation-student.index'); */

@@ -211,9 +211,6 @@
                     <x-label value="Fecha de inicio" />
                     <x-input class="w-full form-control" type='date' wire:model='startdate_' requiered />
                     <x-input-error for='startdate_' />
-                    <div class="text-xs text-gray-500">
-                        {{ $startdate_ }}
-                    </div>
                 </div>
 
                 <div class="form-group mb-4">

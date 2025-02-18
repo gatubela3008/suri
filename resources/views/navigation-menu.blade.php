@@ -22,6 +22,10 @@
                         :active="request()->routeIs('admin.capacitation.index')">
                         {{ __('Capacitations') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.subject.index') }}"
+                        :active="request()->routeIs('admin.subject.index')">
+                        {{ __('Materias') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('admin.group.index') }}"
                         :active="request()->routeIs('admin.group.index')">
                         {{ __('Schedules') }}
@@ -34,11 +38,11 @@
                         :active="request()->routeIs('admin.professor.index')">
                         {{ __('Professors') }}
                     </x-nav-link>
-                    {{-- <x-nav-link href="{{ route('admin.capacitation-student.index') }}"
-                        :active="request()->routeIs('admin.capacitation-student.index')">
+                    {{-- <x-nav-link href="{{ route('admin.inscription.index') }}"
+                        :active="request()->routeIs('admin.inscription.index')">
                         {{ __('Inscripciones y becas') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                     --}}{{-- <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Cobranzas') }}
                     </x-nav-link> --}}
                     @endrole

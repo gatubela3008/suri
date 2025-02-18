@@ -99,9 +99,4 @@ class User extends Authenticatable
         return $this->hasMany(Inscription::class);
     }
 
-    public function groups() : HasManyThrough
-    {
-        return $this->hasManyThrough(Group::class, Inscription::class);
-    }
-    
 }

@@ -111,6 +111,8 @@ class ShowGroups extends Component
         $this->category_name = $group->capacitation->category->category_name;
         $this->category_id = $group->capacitation->category->id;
         $this->assignedSchedules = $this->group->schedules;
+        $this->startdate_ = $this->group->schedules()->first()->pivot->start_date;
+        $this->edition_ = $this->group->schedules()->first()->pivot->edition;
         $this->unassignedSchedules = collect();
         foreach ($this->schedules as $schedule) {
             if (!$this->assignedSchedules->contains($schedule->id)) {

@@ -6,6 +6,7 @@
     <div class="mb-4 px-3 flex items-center">
 
         <x-input wire:model.live='search' class="flex-1 mr-4" placeholder="Escriba el valor que quiere buscar" />
+        @livewire('admin.create-capacitation')
 
     </div>
 
@@ -90,7 +91,7 @@
 
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 
             @foreach ($capacitations as $capacitation)
 
@@ -104,6 +105,19 @@
                 </td>
                 <td class="px-6 py-3">
                     <div>
+
+                        @if ($capacitation->subjects->count() > 1)
+                        <x-blue-button wire:click="listSubjects({{ $capacitation }})" title="Listar materias" class="">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                            </svg>
+
+                        </x-blue-button>
+
+                        @endif
 
                         <x-green-button wire:click="edit({{ $capacitation }})" title="Editar" class="">
 
@@ -160,7 +174,7 @@
 
             <form>
 
-                <div class="form-group">
+                <div class="form-subject">
                     <x-label value="Categoría" />
                     <x-input class="w-full form-control" wire:model='category_name' disabled />
                     <x-input-error for="category_id" />
@@ -191,14 +205,14 @@
                 </div>
 
                 <div class="mb-2">
-                    <x-label value="Precio" />
+                    <x-label value="Precio ₡" />
                     <x-input class="w-full form-control" type='number' min='5000' max='250000' step='100'
                         required='required' wire:model.live='price' />
                     <x-input-error for="price" />
                 </div>
 
                 <div class="mb-2">
-                    <x-label value="Matrícula" />
+                    <x-label value="Matrícula ₡" />
                     <x-input class="w-full form-control" type='number' min='5000' max='50000' step='100'
                         required='required' wire:model.live='registration' />
                     <x-input-error for="registration" />
@@ -218,67 +232,107 @@
                     <x-input-error for="weeks_duration" />
                 </div>
 
-                <div class="mb-2">
+                <div class="mb-4">
                     <x-label value="Requerimientos" />
                     <x-input class="w-full form-control" wire:model.live='requirements' />
                     <x-input-error for="requirements" />
                 </div>
 
-                <div class="w-full">
-                    <x-label class="text-2xl">
-                        Grupos <br>
-                        <span class="text-red-500 text-sm">
-                        (Debe existir por lo menos un grupo.) <br>
-                            (Si hay un único grupo no podrá ser eliminado.)
-                        </span>
-                    </x-label>
-                    <div class="flex items-center w-full mb-2">
-                        <x-input class="w-full" wire:model.live='new_group_name' />
-                        <x-blue-button title="Agregar un grupo" wire:click="addGroup('{{ $new_group_name }}')" class="ml-2">
-                            Agregar
-                        </x-blue-button>
-                    </div>
-                    <div class="w-full">
-                        @foreach ($groups as $group)
-                        <div class="flex items-center w-full mb-2">
-                            <ul class="list-disc list-inside w-full">
-                                <div>
-                                    <li class="flex-l text-left">{{ $group->group_name }}</li>
-                                </div>
-                                <x-danger-button title="Eliminar el grupo" class="right-0" wire:click="deleteGroup({{ $group->id }})"
-                                    class="ml-2" >
-                                    X
-                                </x-danger-button>
-                            </ul>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-
             </form>
+
         </x-slot>
 
         <x-slot name='footer'>
-
             <x-secondary-button wire:click="resetForm" class="mr-4">
                 Cancelar
             </x-secondary-button>
 
-            <x-green-button wire:click="update()" wire:loading.attr='disable' wire:loading.remove wire:target='update'>
+            <x-green-button wire:click="update()" class="" wire:loading.attr='disable' wire:loading.remove
+                wire:target='update'>
                 Actualizar datos
             </x-green-button>
 
             <div class="p-2" wire:loading.delay wire:target='update'>
                 Procesando...
             </div>
+        </x-slot>
 
+    </x-dialog-modal>
+
+    <x-dialog-modal wire:model='open_list'>
+        <x-slot name='title'>
+            Listado de Materias de {{ $capacitation->capacitacion_name }}
+        </x-slot>
+        <x-slot name='content'>
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr scope="col" class="p-4">
+                        <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3">
+                            <span>
+                                Materia
+                            </span>
+                        </td>
+                        <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3">
+                            <span>
+                                Resumen
+                            </span>
+                        </td>
+                        <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3">
+                            <span>
+                                Descripción
+                            </span>
+                        </td>
+                        <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3">
+                            <span>
+                                Semanas
+                            </span>
+                        </td>
+                        <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3">
+                            <span>
+                                Precio
+                            </span>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+                    @foreach ($subjects as $subject)
+        
+                    <tr wire:key='subject-{{ $subject->id }}'
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-3">
+                            {{ $subject->subject_name }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $subject->summary }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $subject->description }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $subject->estimated_weeks }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $subject->price }} . ' ₡'
+                        </td>
+                    </tr>
+
+                    @endforeach
+                </tbody>
+            </table>
+        
+        </x-slot>
+        <x-slot name='footer'>
+            <x-secondary-button wire:click="$set('open_list', false)" class="mr-4">
+                Cancelar
+            </x-secondary-button>
         </x-slot>
     </x-dialog-modal>
 
-
     @push('js')
+
     <script>
-        Livewire.on('segurocpacitacion', function(capacitaionId) {
+        Livewire.on('seguroCapacitacion', function(capacitationId) {
             Swal.fire({
                     title: "¿Está seguro?",
                     text: "¡Esta acción no se puede revertir!",
@@ -290,7 +344,7 @@
                     cancelButtonText: "Cancelar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Livewire.dispatch("deleteCapacitacion", { "id": capacitaionId })
+                        Livewire.dispatch("deleteCapacitation", { "id": capacitationId })
                         Swal.fire({
                             title: "¡Borrado!",
                             text: "El registro de la capacitación ha sido borrado",
@@ -302,7 +356,7 @@
     </script>
 
     <script>
-        Livewire.on('segurocpacitacion', function(capacitaionId) {
+        Livewire.on('seguroCapacitacion', function(capacitaionId) {
             Swal.fire({
                 position: "top-end",
                 icon: "error",

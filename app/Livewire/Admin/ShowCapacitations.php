@@ -4,12 +4,8 @@ namespace App\Livewire\Admin;
 
 use App\Models\Admin\Capacitation;
 use App\Models\Admin\Category;
-use App\Models\Admin\Group;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule as ValidationRule;
-use Illuminate\Validation\Rules\Unique;
 use Livewire\Attributes\On;
 
 class ShowCapacitations extends Component
@@ -17,11 +13,13 @@ class ShowCapacitations extends Component
     use WithPagination;
 
     public $search;
-    public $sort = 'capacitation_name';
+    public $sort = 'category_id';
     public $direction = 'asc';
     public $open_edit = false;
-
+    public $open_list = false;
+    
     public $categories;
+    public $subjects;
     public $capacitation;
     public $capacitation_id;
 
@@ -36,12 +34,7 @@ class ShowCapacitations extends Component
     public $parts = true;
     public $weeks_duration;
     public $requirements;
-    public $groups;
-    public $groups_array = [];
-    public $new_group_id;
-    public $new_group_name;
-    public $new_group;
-
+ 
     protected $rules = [
         'category_id' => 'required|exists:categories,id',
         'capacitation_name' => 'required|max:60',
@@ -52,13 +45,12 @@ class ShowCapacitations extends Component
         'parts' => 'required|numeric|min:1',
         'weeks_duration' => 'required|integer|min:1|max:160',
         'requirements' => 'max:255',
-
     ];
 
     public function mount()
     {
         $this->categories = Category::all();
-        $this->groups = collect();
+        $this->subjects = collect();
     }
 
     public function updatingSearch()
@@ -99,7 +91,6 @@ class ShowCapacitations extends Component
     public function edit(Capacitation $capacitation)
     {
         $this->resetValidation();
-        $this->new_group_name = "";
         $this->open_edit = true;
         $this->capacitation = $capacitation;
         $this->capacitation_id = $capacitation->id;
@@ -116,26 +107,14 @@ class ShowCapacitations extends Component
         $this->category = $this->capacitation->category;
         $this->category_id = $this->capacitation->category->id;
         $this->category_name = $this->capacitation->category->category_name;
-        $this->groups = $this->capacitation->groups;
     }
 
-    public function addGroup($group_name)
+    public function listSubjects(Capacitation $capacitation)
     {
-        $this->capacitation->groups()->create(['group_name' => $group_name]);
-        $this->groups = $this->capacitation->groups;
-        $this->reset('new_group_name');
-        $this->dispatch('exito', 'Grupo agregado en la base de datos');
+        $this->subjects= $capacitation->subjects;
+        $this->open_list = true;
     }
-
-    public function deleteGroup($id)
-    {
-        if ($this->capacitation->groups->count() > 1) {
-            $group = Group::find($id);
-            $group->delete();
-            $this->groups = $this->capacitation->groups;
-        }
-    }
-
+    
     public function update()
     {
         $this->validate(
@@ -177,12 +156,11 @@ class ShowCapacitations extends Component
             'weeks_duration',
             'requirements',
             'open_edit',
+            'open_list',
         ]);
     }
 
-    
-
-    #[On('deletecapacitation')]
+    #[On('deleteCapacitation')]
     public function deleteCapacitation(Capacitation $id)
     {
         $id->delete();

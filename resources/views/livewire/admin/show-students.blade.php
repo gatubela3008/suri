@@ -17,12 +17,12 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr scope="col" class="p-4">
                 <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3"
-                    wire:click="order('name')">
+                    wire:click="order('users.name')">
                     <span>
-                        Nombre
+                        Estudiante
                     </span>
 
-                    @if ($sort == 'name')
+                    @if ($sort == 'users.name')
 
                     @if ($direction == 'asc')
 

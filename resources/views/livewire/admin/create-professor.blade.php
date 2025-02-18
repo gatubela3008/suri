@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group">
-                    <x-label value="Canton" />
+                    <x-label value="Cantón" />
                     <x-select  wire:model.live="canton_id" id="canton" class="w-full mb-2 form-control">
                         <option value=null selected='selected' disabled>
                             Seleccione una opción

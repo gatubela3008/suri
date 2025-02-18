@@ -18,19 +18,9 @@ class Capacitation extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function schedules() : HasManyThrough
+    public function subjects() : HasMany
     {
-        return $this->hasManyThrough(Schedule::class, Group::class);
-    }
-
-    public function inscriptions() : HasManyThrough
-    {
-        return $this->hasManyThrough(Inscription::class, Group::class);
+        return $this->hasMany(Subject::class);
     }
     
-    public function groups() : HasMany
-    {
-        return $this->hasMany(Group::class);
-    }
-
 }

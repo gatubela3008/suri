@@ -18,28 +18,9 @@ class Inscription extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function capacitation () : BelongsTo
+    public function group () : BelongsTo
     {
-        return $this->belongsTo(Capacitation::class);
+        return $this->belongsTo(Group::class);
     }
 
-    public function group () : HasMany
-    {
-        return $this->hasMany(Group::class);
-    }
-    
-    public function users () : BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function capactation() : HasOneThrough
-    {
-        return $this->hasOneThrough(Capacitation::class, Group::class);
-    }
-
-    public function schedule() : HasManyThrough
-    {
-        return $this->hasManyThrough(Schedule::class, Group::class);
-    }
 }

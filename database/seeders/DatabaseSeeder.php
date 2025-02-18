@@ -39,6 +39,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CantonSeeder::class);
         $this->call(ScheduleSeeder::class);
 
+        $this->call(CategorySeeder::class);
+        $this->call(CapacitationSeeder::class); // Contiene parcialmente datos falsos
+
         // User::factory(10)->create();
 
         $user = User::factory()->create([
@@ -86,9 +89,7 @@ class DatabaseSeeder extends Seeder
             
             
         }
-
-        $this->call(CategorySeeder::class);
-        $this->call(CapacitationSeeder::class);
+        $this->call(InscriptionSeeder::class);
         
     }
 }

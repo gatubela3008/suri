@@ -1,0 +1,13 @@
+Colocar el campo precio en materias y rehacer el seeder
+Hay que hacer aparte un CRUD de materias sonde la lista muestre la categoría, 
+la capacitación y la materia ordenado por capacitaciones
+
+Debe ingresarse una materia a la vez
+
+De igual forma hay que hacerlo con los grupos
+
+Luego hay que hacerlo con los horarios
+
+Una vez se tenga todo esto, se procederá a seleccionar una alumna y una capacitación
+Aquí podrá haber un método que quite de dicha inscripción una materia.
+Inscripciones y deserciones se deben manejar en el mismo módulo. 

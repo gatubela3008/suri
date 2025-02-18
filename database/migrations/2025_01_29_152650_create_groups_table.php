@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('group_name', 60)->default('Único');
-            $table->foreignId('capacitation_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
             
             $table->timestamps();
         });
