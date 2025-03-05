@@ -8,6 +8,7 @@ use App\Models\Admin\Identification;
 use App\Models\Admin\IdType;
 use App\Models\Admin\Phone;
 use App\Models\Admin\Province;
+use App\Models\Admin\Student;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -93,6 +94,10 @@ class CreateStudent extends Component
             'current_team_id' => null,
         ]);
 
+        Student::create([
+            'user_id' => $this->user->id,
+        ]);
+        
         $this->user->assignRole('student');
 
         Identification::create([

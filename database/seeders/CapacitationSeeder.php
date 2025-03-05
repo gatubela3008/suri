@@ -5,8 +5,10 @@ namespace Database\Seeders;
 use App\Models\Admin\Capacitation;
 use App\Models\Admin\Category;
 use App\Models\Admin\Group;
+use App\Models\Admin\Professor;
 use App\Models\Admin\Schedule;
 use App\Models\Admin\Subject;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,14 +19,14 @@ class CapacitationSeeder extends Seeder
      */
     public function run(): void
     {
+        $professors = Professor::all();
+        $schedules = Schedule::all();
         $category = Category::where('category_name', 'Costura')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Accesorios para mascotas',
             'price' => 60000 / 4 * 24,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 24,
             'requirements' => 'Costura básica',
         ]);
@@ -34,16 +36,19 @@ class CapacitationSeeder extends Seeder
             'estimated_weeks' => 24,
             'price' => 60000 / 4 * 24,
         ]);
+
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Transformaciones y reparaciones en ropa',
             'price' => 60000 / 4 * 12,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 12,
             'requirements' => 'Costura básica',
         ]);
@@ -54,15 +59,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 12,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 3
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Diseño de moda',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => 'Introducción al manejo de máquinas',
         ]);
@@ -73,15 +80,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 4
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Bolsos y accesorios en vinyl. Principiante',
             'price' => 60000 / 4 * 12,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 12,
             'requirements' => 'Costura básica',
         ]);
@@ -92,15 +101,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 12,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 5
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Bolsos y accesorios en vinyl. Avanzado',
             'price' => 60000 / 4 * 24,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 24,
             'requirements' => 'Costura vinyl Principiante.',
         ]);
@@ -111,15 +122,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 24,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 6
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Confección ropa deportiva',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => 'Costura básica',
         ]);
@@ -130,15 +143,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 7
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Confección ropa (medicina, uniformes)',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => 'Patronaje básico',
         ]);
@@ -149,15 +164,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 8
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Introducción a la costura',
             'price' => 60000 / 4 * 12,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 12,
             'requirements' => 'Inrtoducción al manejo de máquinas',
         ]);
@@ -168,15 +185,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 12,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 9
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Ropa ejecutiva (camisas, faldas, vestidos)',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => 'Patronaje básico',
         ]);
@@ -187,15 +206,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 10
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Patronaje intermedio',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => 'Patronaje básico',
         ]);
@@ -206,18 +227,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Gastronomía')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Elaboración y decoración de queques',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -228,14 +251,16 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Transformaciones y reparaciones en ropa',
             'price' => 60000 / 4 * 24,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 24,
             'requirements' => null,
         ]);
@@ -246,15 +271,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 24,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 3
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Repostería profesional',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -265,15 +292,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 4
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Chocolatería',
             'price' => 60000 / 4 * 4,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 4,
             'requirements' => null,
         ]);
@@ -284,15 +313,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 5
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Bolsos y accesorios en vinyl. Avanzado',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -303,18 +334,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Belleza')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Manicura profesional',
             'price' => 60000 / 4 * 24,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 24,
             'requirements' => null,
         ]);
@@ -325,15 +358,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 24,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Alto peinado',
             'price' => 60000 / 4 * 24,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 24,
             'requirements' => null,
         ]);
@@ -344,18 +379,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 24,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Técnico Belleza')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Manicura profesional',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -366,15 +403,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Especialización. Técnicas mixtas',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => 'Manicura profesional',
         ]);
@@ -385,15 +424,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 3
         $capacitation = $category->capacitations()->create([
-            'capacitation_name' => 'Estilismo / 4 * 36',
+            'capacitation_name' => 'Estilismo',
             'price' => 60000,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -404,18 +445,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Cómputo')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Computación básica',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -426,15 +469,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Computación Excel avanzado',
             'price' => 60000 / 4 * 12,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 12,
             'requirements' => null,
         ]);
@@ -445,18 +490,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 12,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Inglés')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Inglés A1 (principiantes)',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -467,15 +514,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Inglés B1 Avanzado',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => "Examen de ubicación",
         ]);
@@ -486,15 +535,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 3
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Inglés niñas de 9 y 10 años',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -505,15 +556,17 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 4
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Inglés niñas de 11 y 12 años',
             'price' => 60000 / 4 * 36,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 36,
             'requirements' => null,
         ]);
@@ -524,18 +577,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Técnico')->first();
 
         // 1.1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Asistente administrativo y asistente contable',
             'price' => 80000 / 4 * 74,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 74,
             'requirements' => "Bachillerato",
         ]);
@@ -546,9 +601,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 20,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.2
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Contabilidad',
@@ -557,9 +616,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 12,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.3
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Administración General',
@@ -568,9 +631,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 12,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.4
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Planificación estratégica',
@@ -579,9 +646,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.5
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Liderazgo',
@@ -590,9 +661,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.6
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Administración bancaria',
@@ -601,9 +676,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.7
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Finanzas',
@@ -612,9 +691,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.8
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Presupuesto',
@@ -623,9 +706,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.9
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Salud ocupacional',
@@ -634,9 +721,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.10
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Control de inventario',
@@ -645,9 +736,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.11
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Auditoría y control interno',
@@ -656,9 +751,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.12
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Mercadeo y servicio al cliente',
@@ -667,9 +766,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.13
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Legislación laboral',
@@ -678,9 +781,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.14
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Estadística',
@@ -689,9 +796,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.15
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Seminario de ética',
@@ -700,20 +811,28 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.16
         $subject = $capacitation->subjects()->create([
-            'subject_name' => 'Seminario de ética y protocolo',
+            'subject_name' => 'Seminario de etiquética y protocolo',
             'capacitation_id' => $capacitation->id,
             'estimated_weeks' => 1,
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.17
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Pasantía',
@@ -722,9 +841,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 6,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.18
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Legislación tributaria',
@@ -733,9 +856,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 4,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.19
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Metodología de la investigación',
@@ -744,9 +871,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 36,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
 
         $category = Category::where('category_name', 'Técnico Asistente del Adulto Mayor')->first();
 
@@ -754,8 +885,6 @@ class CapacitationSeeder extends Seeder
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Asistente al adulto mayor',
             'price' => 80000 * 52 / 4,
-            'registration' => 15000,
-            'parts' => 2,
             'weeks_duration' => 26,
             'requirements' => null,
         ]);
@@ -766,9 +895,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 14,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.2
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Introducción a los conceptos de la vejez y el envajacimiento',
@@ -777,9 +910,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 6,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.3
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Abordaje del adulto mayor con deterioro cognitivo y síndromes demenciales',
@@ -788,9 +925,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 8,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.4
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Nutrición',
@@ -799,9 +940,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.5
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Ética - Cuidadores, autocuidado y salud mental',
@@ -810,9 +955,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.6
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Ética - Promoción del envejecimiento saludable',
@@ -821,9 +970,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.7
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Proyecto de graduación',
@@ -832,9 +985,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.8
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Odontología',
@@ -843,9 +1000,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.9
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Primeros auxilios I',
@@ -854,9 +1015,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.10
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Primeros auxilios II',
@@ -865,9 +1030,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.11
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Seminario I',
@@ -876,9 +1045,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 1,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.12
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Seminario II',
@@ -887,9 +1060,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.13
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'HB - Seminario III',
@@ -898,9 +1075,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 1.14
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Ética - Seminario',
@@ -909,9 +1090,13 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
+        $group->schedules()->attach($schedules->random()->id);
         // 2.15
         $subject = $capacitation->subjects()->create([
             'subject_name' => 'Ética - Seminario cristiano de la muerte',
@@ -920,18 +1105,20 @@ class CapacitationSeeder extends Seeder
             'price' => 60000 / 4 * 5,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-                
+        $group->schedules()->attach($schedules->random()->id);
+
         $category = Category::where('category_name', 'Otros')->first();
 
         // 1
         $capacitation = $category->capacitations()->create([
             'capacitation_name' => 'Habilidades blandas',
             'price' => 0,
-            'registration' => 0,
-            'parts' => false,
             'weeks_duration' => 0,
             'requirements' => "",
         ]);
@@ -942,14 +1129,18 @@ class CapacitationSeeder extends Seeder
             'price' => 0,
         ]);
         $group = $subject->groups()->create([
-            'group_name' => 'Único',
+            'group_name' => 'Única',
             'subject_id' => $subject->id,
+            'start_date' => '2025-01-01',
+            'edition' => 'Edición',
+            'professor_id' => $professors->random()->id,
         ]);
-        
+        $group->schedules()->attach($schedules->random()->id);
+
         /**
          * Datos de prueba
          */
-        
+
         $subjects = Subject::all();
         foreach ($subjects as $subject) {
             $number = rand(1, 3);
@@ -957,21 +1148,21 @@ class CapacitationSeeder extends Seeder
                 $group = $subject->groups()->create([
                     'group_name' => 'Grupo ' . $i,
                     'subject_id' => $subject->id,
+                    'start_date' => '2025-01-01',
+                    'edition' => 'Edición ' . $i,
+                    'professor_id' => $professors->random()->id,
                 ]);
+                $group->schedules()->attach($schedules->random()->id);
             }
         }
-        
+
         $groups = Group::all();
         foreach ($groups as $group) {
             $schedules = rand(1, 3);
             $schedule = [];
             for ($j = 0; $j < $schedules; $j++) {
-                $schedule[] = Schedule::all()->random()->id;                
+                $schedule[] = Schedule::all()->random()->id;
             }
-            $group->schedules()->syncWithPivotValues($schedule, [
-                'start_date' => '2025-01-01',
-                'edition' => 'Edición ' . $j,
-            ]);
         }
     }
 }

@@ -17,12 +17,11 @@ class ShowCapacitations extends Component
     public $direction = 'asc';
     public $open_edit = false;
     public $open_list = false;
-    
     public $categories;
     public $subjects;
+    
     public $capacitation;
     public $capacitation_id;
-
     public $category;
     public $category_id;
     public $category_name;
@@ -30,8 +29,6 @@ class ShowCapacitations extends Component
     public $summary;
     public $description;
     public $price;
-    public $registration = 15000;
-    public $parts = true;
     public $weeks_duration;
     public $requirements;
  
@@ -40,9 +37,7 @@ class ShowCapacitations extends Component
         'capacitation_name' => 'required|max:60',
         'summary' => 'max:500',
         'description' => 'max:2000',
-        'price' => 'required|integer|min:5000|max:250000',
-        'registration' => 'required|integer|min:5000|max:50000',
-        'parts' => 'required|numeric|min:1',
+        'price' => 'required|integer|min:5000|max:1200000',
         'weeks_duration' => 'required|integer|min:1|max:160',
         'requirements' => 'max:255',
     ];
@@ -94,19 +89,15 @@ class ShowCapacitations extends Component
         $this->open_edit = true;
         $this->capacitation = $capacitation;
         $this->capacitation_id = $capacitation->id;
-
-        $this->capacitation_name = $this->capacitation->capacitation_name;
-        $this->summary = $this->capacitation->summary;
-        $this->description = $this->capacitation->description;
-        $this->price = $this->capacitation->price;
-        $this->registration = $this->capacitation->registration;
-        $this->parts = $this->capacitation->parts;
-        $this->weeks_duration = $this->capacitation->weeks_duration;
-        $this->requirements = $this->capacitation->requirements;
-        $this->capacitation_id = $this->capacitation->id;
-        $this->category = $this->capacitation->category;
-        $this->category_id = $this->capacitation->category->id;
-        $this->category_name = $this->capacitation->category->category_name;
+        $this->capacitation_name = $capacitation->capacitation_name;
+        $this->summary = $capacitation->summary;
+        $this->description = $capacitation->description;
+        $this->price = $capacitation->price;
+        $this->weeks_duration = $capacitation->weeks_duration;
+        $this->requirements = $capacitation->requirements;
+        $this->category = $capacitation->category;
+        $this->category_id = $capacitation->category->id;
+        $this->category_name = $capacitation->category->category_name;
     }
 
     public function listSubjects(Capacitation $capacitation)
@@ -126,8 +117,6 @@ class ShowCapacitations extends Component
                 'summary' => "resumen",
                 'description' => "descripción",
                 'price' => "costo",
-                'registration' => "matrícula",
-                'parts' => "¿en dos partes?",
                 'weeks_duration' => "semanas de duración",
                 'requirements' => "requerimientos",
             ]
@@ -135,6 +124,11 @@ class ShowCapacitations extends Component
 
         $this->capacitation = Capacitation::find($this->capacitation_id);
         $this->capacitation->capacitation_name = $this->capacitation_name;
+        $this->capacitation->summary = $this->summary;
+        $this->capacitation->description = $this->description;
+        $this->capacitation->price = $this->price;
+        $this->capacitation->week_duration = $this->week_duration;
+        $this->capacitation->requirements = $this->requirements;
         $this->capacitation->save();
 
         $this->resetForm();
@@ -151,8 +145,6 @@ class ShowCapacitations extends Component
             'summary',
             'description',
             'price',
-            'registration',
-            'parts',
             'weeks_duration',
             'requirements',
             'open_edit',

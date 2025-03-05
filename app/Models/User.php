@@ -5,14 +5,13 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Admin\Address;
-use App\Models\Admin\Group;
 use App\Models\Admin\Identification;
-use App\Models\Admin\Inscription;
 use App\Models\Admin\Phone;
+use App\Models\Admin\Professor;
+use App\Models\Admin\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -94,9 +93,14 @@ class User extends Authenticatable
         return $this->hasOne(Address::class);
     }
 
-    public function inscriptions() : HasMany
+    public function professors() : HasMany
     {
-        return $this->hasMany(Inscription::class);
+        return $this->hasMany(Professor::class);
+    }
+
+    public function students() : HasMany
+    {
+        return $this->hasMany(Student::class);
     }
 
 }

@@ -5,6 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Category extends Model
 {
@@ -16,6 +17,11 @@ class Category extends Model
     public function capacitations() : HasMany
     {
         return $this->hasMany(Capacitation::class);
+    }
+
+    public function subjects() : HasManyThrough
+    {
+        return $this->hasManyThrough(Subject::class, Capacitation::class);
     }
 
 }

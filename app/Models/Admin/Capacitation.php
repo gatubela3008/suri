@@ -22,5 +22,10 @@ class Capacitation extends Model
     {
         return $this->hasMany(Subject::class);
     }
+
+    public function groups() : HasManyThrough
+    {
+        return $this->hasManyThrough(Group::class, Subject::class);
+    }
     
 }

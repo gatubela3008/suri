@@ -18,8 +18,6 @@ return new class extends Migration
             $table->text('summary')->nullable();
             $table->text('description')->nullable();
             $table->integer('price');
-            $table->integer('registration')->default(15000);
-            $table->integer('parts')->default(2);
             $table->integer('weeks_duration');
             $table->string('requirements')->nullable();
 

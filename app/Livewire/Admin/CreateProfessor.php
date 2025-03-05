@@ -7,6 +7,7 @@ use App\Models\Admin\Canton;
 use App\Models\Admin\Identification;
 use App\Models\Admin\IdType;
 use App\Models\Admin\Phone;
+use App\Models\Admin\Professor;
 use App\Models\Admin\Province;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -92,6 +93,10 @@ class CreateProfessor extends Component
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
+        ]);
+
+        Professor::create([
+            'user_id' => $this->user->id,
         ]);
 
         $this->user->assignRole('professor');

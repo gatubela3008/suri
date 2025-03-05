@@ -16,13 +16,6 @@ class Schedule extends Model
     public function groups() : BelongsToMany
     { 
         return $this->belongsToMany(Group::class) 
-            ->withPivot('start_date', 'edition') 
             ->withTimestamps(); 
-    }
-
-    public function inscriptions() : HasManyThrough
-    {
-        return $this->hasManyThrough(Inscription::class, Group::class);
-    }
-    
+    }    
 }

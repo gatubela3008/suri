@@ -7,6 +7,7 @@ use App\Models\Admin\Canton;
 use App\Models\Admin\Identification;
 use App\Models\Admin\IdType;
 use App\Models\Admin\Phone;
+use App\Models\Admin\Professor;
 use App\Models\Admin\Province;
 use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
@@ -27,23 +28,23 @@ class ShowProfessors extends Component
     public $sort = 'name';
     public $direction = 'asc';
     public $open_edit = false;
-
+    public $idTypes;
+    public $provinces;
+    public $cantons;
+    
     public $user;
     public $professor;
     public $professor_id;
     public $name;
     public $email;
     public $idType_id;
-    public $idTypes;
     public $identification_id;
     public $numberId;
     public $phone_id;
     public $phone;
     public $address_id;
     public $province_id;
-    public $provinces;
     public $canton_id;
-    public $cantons;
     public $district;
     public $street;
     public $residence;
@@ -51,6 +52,7 @@ class ShowProfessors extends Component
 
     protected $rules = [
         'name' => 'required|max:255',
+        'email' => 'required|email|max:255',
         'idType_id' => 'required|exists:id_types,id',
         'numberId' => 'required|max:15',
         'phone' => 'required|max:20',
@@ -189,7 +191,7 @@ class ShowProfessors extends Component
         $address->save();
 
         $this->resetForm();
-        /* $this->dispatch('edit-professor'); */
+        $this->dispatch('edit-professor'); 
         $this->dispatch('exito', 'Profesora actualizada en la base de datos');
     }
 

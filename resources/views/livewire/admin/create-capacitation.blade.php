@@ -56,30 +56,9 @@
     
                     <div class="mb-2">
                         <x-label value="Precio ₡" />
-                        <x-input class="w-full form-control" type='number' min='5000' max='250000' step='100'
+                        <x-input class="w-full form-control" type='number' min='5000' max='1200000' step='100'
                             required='required' wire:model.live='price' />
                         <x-input-error for="price" />
-                    </div>
-    
-                    <div class="mb-2">
-                        <x-label value="Matrícula ₡" />
-                        <x-input class="w-full form-control" type='number' min='5000' max='50000' step='100'
-                            required='required' wire:model.live='registration' />
-                        <x-input-error for="registration" />
-                    </div>
-    
-                    <div class="mb-2">
-                        <x-label value="Partes de pago (matrícula)" />
-                        <x-input class="w-full form-control" type='number' min='1' max='10' step='1' required='required'
-                            wire:model.live='parts' />
-                        <x-input-error for="parts" />
-                    </div>
-    
-                    <div class="mb-2">
-                        <x-label value="Semanas" />
-                        <x-input class="w-full form-control" type='number' min='1' max='104' step='1' required='required'
-                            wire:model.live='weeks_duration' />
-                        <x-input-error for="weeks_duration" />
                     </div>
     
                     <div class="mb-4">

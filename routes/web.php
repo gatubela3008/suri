@@ -10,7 +10,6 @@ use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\HomeController;
-use App\Models\Admin\Subject;
 use Illuminate\Console\Scheduling\ScheduleListCommand;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +34,7 @@ Route::middleware([
         ->name('admin.subject.index');
     Route::get('/admin/group', [GroupController::class, 'index'])
         ->name('admin.group.index');
+
     /* Route::get('/admin/inscription', [InscriptionController::class, 'index'])
         ->name('admin.inscription.index');
      *//* Route::get('/admin/schedule/capacitacion', [ScheduleCapacitationController::class, 'index'])

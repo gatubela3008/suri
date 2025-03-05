@@ -52,7 +52,7 @@
                 <td scope="col" class="justify-between items-center cursor-pointer px-6 py-3"
                     wire:click="order('capacitation_name')">
                     <span>
-                        Nombre
+                        Capacitación
                     </span>
 
                     @if ($sort == 'capacitation_name')
@@ -91,7 +91,7 @@
 
             </tr>
         </thead>
-        <tbody class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tbody class="text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 
             @foreach ($capacitations as $capacitation)
 
@@ -225,13 +225,6 @@
                     <x-input-error for="parts" />
                 </div>
 
-                <div class="mb-2">
-                    <x-label value="Semanas" />
-                    <x-input class="w-full form-control" type='number' min='1' max='104' step='1' required='required'
-                        wire:model.live='weeks_duration' />
-                    <x-input-error for="weeks_duration" />
-                </div>
-
                 <div class="mb-4">
                     <x-label value="Requerimientos" />
                     <x-input class="w-full form-control" wire:model.live='requirements' />
@@ -355,16 +348,7 @@
             })
     </script>
 
-    <script>
-        Livewire.on('seguroCapacitacion', function(capacitaionId) {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Debe haber por lo menos un grupo",
-                showConfirmButton: false,
-                timer: 3000
-            }));
-    </script>
+    
     @endpush
 
 
