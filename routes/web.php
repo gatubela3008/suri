@@ -1,16 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\CapacitationController;
-use App\Http\Controllers\Admin\CapacitationStudentController;
 use App\Http\Controllers\Admin\GroupController;
-use App\Http\Controllers\Admin\InscriptionController;
 use App\Http\Controllers\Admin\ProfessorController;
-use App\Http\Controllers\Admin\ScheduleCapacitationController;
-use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Invoice\StudentController as InvoiceStudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Console\Scheduling\ScheduleListCommand;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,6 +30,8 @@ Route::middleware([
         ->name('admin.subject.index');
     Route::get('/admin/group', [GroupController::class, 'index'])
         ->name('admin.group.index');
+    Route::get('/invoice/student', [InvoiceStudentController::class, 'index'])
+        ->name('invoice.student.index');
 
     /* Route::get('/admin/inscription', [InscriptionController::class, 'index'])
         ->name('admin.inscription.index');

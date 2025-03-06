@@ -2,8 +2,7 @@
 
 namespace Database\Factories\Admin;
 
-use App\Models\Admin\IdType;
-use App\Models\User;
+use App\Models\IdType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

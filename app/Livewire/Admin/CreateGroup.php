@@ -2,16 +2,13 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Admin\Capacitation;
-use App\Models\Admin\Group;
-use App\Models\Admin\Professor;
-use App\Models\Admin\Schedule;
-use App\Models\Admin\Subject;
+use App\Models\Capacitation;
+use App\Models\Group;
+use App\Models\Professor;
+use App\Models\Schedule;
+use App\Models\Subject;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Validation\Rule as ValidationRule;
-use Illuminate\Validation\Rules\Unique;
-use Livewire\Attributes\On;
 
 class CreateGroup extends Component
 {

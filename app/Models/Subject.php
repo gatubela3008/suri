@@ -1,30 +1,40 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
-class Professor extends Model
+class Subject extends Model
 {
     protected $guarded = [];
 
-    public function user() : BelongsTo
+    public function capacitation() : BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Capacitation::class);
     }
 
     public function groups() : HasMany
     {
         return $this->hasMany(Group::class);
     }
-    
+
     public function schedules() : HasManyThrough
     {
         return $this->hasManyThrough(Schedule::class, Group::class);
     }
+
+    public function professor() : HasOneThrough
+    {
+        return $this->hasOneThrough(Professor::class, Group::class);
+    }
+
+    public function students() : HasManyThrough
+    {
+        return $this->hasManyThrough(Student::class, Group::class);
+    }
+
 }

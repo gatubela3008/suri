@@ -2,25 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\DayOfWeek;
-use App\Models\Admin\Address;
-use App\Models\Admin\Category;
-use App\Models\Admin\Identification;
+use App\Models\Address;
+use App\Models\Identification;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\CantonSeeder;
-use App\Models\Admin\IdType;
-use App\Models\Admin\Phone;
-use App\Models\Admin\Professor;
-use App\Models\Admin\Schedule;
-use App\Models\Admin\StatusProfessor;
-use App\Models\Admin\StatusStudent;
-use App\Models\Admin\Student;
-use App\Shift;
+use App\Models\IdType;
+use App\Models\PaymentType;
+use App\Models\Phone;
+use App\Models\Professor;
+use App\Models\Student;
 
 class DatabaseSeeder extends Seeder
 {
@@ -42,8 +36,28 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProvinceSeeder::class);
         $this->call(CantonSeeder::class);
+
+        PaymentType::create([
+            'name' => 'Matrícula',
+            'tipo' => 'Factura',
+        ]);
+        PaymentType::create([
+            'name' => 'Mensualidad',
+            'tipo' => 'Factura',
+        ]);
+        PaymentType::create([
+            'name' => 'Seminario',
+            'tipo' => 'Recibo',
+        ]);
+        PaymentType::create([
+            'name' => 'Bingo',
+            'tipo' => 'Recibo',
+        ]);
+        PaymentType::create([
+            'name' => 'Costos de graduación',
+            'tipo' => 'Recibo',
+        ]);
        
-        
         // User::factory(10)->create();
 
         $user = User::factory()->create([
@@ -51,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@suri.org',
             'password' => Hash::make('admin'),
         ]);
-        $user->assignRole('admin');
+        $user->assignRole('admin');        
         Identification::factory()->create([
             'user_id' => 1, 
         ]);

@@ -2,14 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Capacitation;
-use App\Models\Admin\Category;
-use App\Models\Admin\Group;
-use App\Models\Admin\Professor;
-use App\Models\Admin\Schedule;
-use App\Models\Admin\Subject;
-use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Group;
+use App\Models\Professor;
+use App\Models\Schedule;
+use App\Models\Subject;
 use Illuminate\Database\Seeder;
 
 class CapacitationSeeder extends Seeder

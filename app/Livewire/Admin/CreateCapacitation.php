@@ -2,10 +2,9 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Admin\Capacitation;
-use App\Models\Admin\Category;
+use App\Models\Capacitation;
+use App\Models\Category;
 use Livewire\Component;
-use Livewire\Attributes\On;
 
 class CreateCapacitation extends Component
 {

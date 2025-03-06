@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Schedule;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Schedule;
 use Illuminate\Database\Seeder;
 
 class ScheduleSeeder extends Seeder

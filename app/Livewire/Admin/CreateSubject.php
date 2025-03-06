@@ -2,12 +2,10 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Admin\Capacitation;
-use App\Models\Admin\Group;
-use App\Models\Admin\Subject;
+use App\Models\Capacitation;
+use App\Models\Group;
+use App\Models\Subject;
 use Livewire\Component;
-use Livewire\Attributes\Validate;
-use Livewire\Livewire;
 
 class CreateSubject extends Component
 {

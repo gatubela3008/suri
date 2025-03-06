@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -19,6 +15,10 @@ class HomeController extends Controller
         switch ($role) {
             case 'admin':
                 return view('suri.admin.dashboard');
+                break;
+
+            case 'invoice':
+                return view('suri.invoice.dashboard');
                 break;
 
             case 'professor':

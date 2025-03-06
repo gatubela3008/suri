@@ -2,7 +2,7 @@
 
 namespace Database\Factories\Admin;
 
-use App\Models\Admin\Canton;
+use App\Models\Canton;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

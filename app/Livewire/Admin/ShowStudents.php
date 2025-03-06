@@ -2,20 +2,15 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Admin\Address;
-use App\Models\Admin\Canton;
-use App\Models\Admin\Identification;
-use App\Models\Admin\IdType;
-use App\Models\Admin\Phone;
-use App\Models\Admin\Province;
+use App\Models\Address;
+use App\Models\Canton;
+use App\Models\Identification;
+use App\Models\IdType;
+use App\Models\Phone;
+use App\Models\Province;
 use App\Models\User;
-use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule as ValidationRule;
-use Illuminate\Validation\Rules\Unique;
 use Livewire\Attributes\On;
 
 class ShowStudents extends Component

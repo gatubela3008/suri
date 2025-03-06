@@ -1,8 +1,26 @@
+Una vez se tenga todo esto, se procederá a seleccionar una alumna, 
+una capacitación, una materia, una edición, una fecha de inicio (se tomará
+la fecha de inicio de la edición), una sección y se inscribirá a la alumna.
 
-Crear groups
+De igual manera como el componente de inscripción, se tendrá el de deserción 
+donde se seleccionará a una alumna, una capacitación y una materia en curso.
+Esto quiere decir que la tabla pivote de group_student se debe tener campos
+adicionales para la fecha de inicio y la fecha de fin y el status en la que
+se encuentra la alumna (inscrita, desertada, graduada, etc). Para lo cual también
+hay que crear una tabla de los tipos de status de las alumnas.
 
-Una vez se tenga todo esto, se procederá a seleccionar una alumna y 
-una capacitación
-Aquí podrá haber un método que quite de dicha inscripción una 
-materia.
-Inscripciones y deserciones se deben manejar en el mismo módulo. 
+Crear la tabla de tipos de pagos (cuota, matrícula, bingo, etc) y se debe asociar
+a un tipo de constancia (factura o recibo).
+
+En la modificación de la inscripción se debe mostrar un botón para editar
+a las deserciones de las inscritas. 
+
+Para las cobranzas se debe elegir a una alumna, una capacitación, una materia,
+una edición, una fecha de inicio (se tomará la fecha de inicio de la edición),
+el tipo de cobranza (cuota, matrícula, bingo, etc) y el monto a cobrar. Como
+datos adicionales de debe mostrar la fecha de facturación, la fecha de pago,
+el monto pagado. En una factura se pueden incluir varias materias de una misma
+capacitación. Además, se debe poder 
+modificar únicamente sólo por el monto administrador. Se debe poder distinguir entre 
+facturas y los recibos (esto se deduce según el tipo de pago). Tanto los números 
+de factura como los de recibo deben ser introducidos a mano.

@@ -40,6 +40,12 @@
                     </x-nav-link>
                     @endrole
 
+                    @role('invoice')
+                    <x-nav-link href="{{ route('invoice.student.index') }}"
+                        :active="request()->routeIs('invoice.student.index')">
+                        {{ __('Students') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 

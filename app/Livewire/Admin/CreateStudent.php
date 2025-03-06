@@ -2,19 +2,17 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Admin\Address;
-use App\Models\Admin\Canton;
-use App\Models\Admin\Identification;
-use App\Models\Admin\IdType;
-use App\Models\Admin\Phone;
-use App\Models\Admin\Province;
-use App\Models\Admin\Student;
+use App\Models\Address;
+use App\Models\Canton;
+use App\Models\Identification;
+use App\Models\IdType;
+use App\Models\Phone;
+use App\Models\Province;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Illuminate\Support\Str;
-use Livewire\Attributes\Validate;
-use Livewire\Livewire;
 
 class CreateStudent extends Component
 

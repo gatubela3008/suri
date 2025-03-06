@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Group;
+use App\Models\Group;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class InscriptionSeeder extends Seeder

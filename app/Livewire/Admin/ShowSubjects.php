@@ -2,13 +2,11 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Admin\Capacitation;
-use App\Models\Admin\Category;
-use App\Models\Admin\Subject;
+use App\Models\Capacitation;
+use App\Models\Subject;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
-use Illuminate\Validation\Rule as ValidationRule;
 
 
 class ShowSubjects extends Component
