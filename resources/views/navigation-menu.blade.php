@@ -38,6 +38,10 @@
                         :active="request()->routeIs('admin.professor.index')">
                         {{ __('Professors') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.inscription.index') }}"
+                        :active="request()->routeIs('admin.inscription.index')">
+                        {{ __('Inscripciones') }}
+                    </x-nav-link>
                     @endrole
 
                     @role('invoice')

@@ -2,6 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\IdType;
+use App\Models\PaymentType;
+use App\Models\Phone;
+use App\Models\Professor;
+use App\Models\Student;
 use App\Models\Address;
 use App\Models\Identification;
 use App\Models\User;
@@ -10,11 +15,6 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\CantonSeeder;
-use App\Models\IdType;
-use App\Models\PaymentType;
-use App\Models\Phone;
-use App\Models\Professor;
-use App\Models\Student;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,23 +39,28 @@ class DatabaseSeeder extends Seeder
 
         PaymentType::create([
             'name' => 'Matrícula',
-            'tipo' => 'Factura',
+            'type' => 'Factura',
+            'frecuency' => '12',
         ]);
         PaymentType::create([
             'name' => 'Mensualidad',
-            'tipo' => 'Factura',
+            'type' => 'Factura',
+            'frecuency' => '1',
         ]);
         PaymentType::create([
             'name' => 'Seminario',
-            'tipo' => 'Recibo',
+            'type' => 'Recibo',
+            'frecuency' => '0',
         ]);
         PaymentType::create([
             'name' => 'Bingo',
-            'tipo' => 'Recibo',
+            'type' => 'Recibo',
+            'frecuency' => '12',
         ]);
         PaymentType::create([
             'name' => 'Costos de graduación',
-            'tipo' => 'Recibo',
+            'type' => 'Recibo',
+            'frecuency' => '0',
         ]);
        
         // User::factory(10)->create();
@@ -128,7 +133,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ScheduleSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(CapacitationSeeder::class); // Contiene parcialmente datos falsos
-        
+        $this->call(InscriptionSeeder::class);
 
     }
     

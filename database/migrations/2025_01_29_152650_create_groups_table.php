@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('group_name', 60)->default('Único');
             $table->date('start_date');
             $table->string('edition');
+            $table->boolean('active')->default(true);
 
             $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
             $table->foreignId('professor_id')->constrained()->cascadeOnDelete();

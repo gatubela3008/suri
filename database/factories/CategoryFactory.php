@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories\Admin;
+namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin\Phone>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin\Category>
  */
-class PhoneFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class PhoneFactory extends Factory
     public function definition(): array
     {
         return [
-            'number' => $this->faker->phoneNumber(),
+            'name' => $this->faker->word,
         ];
     }
 }

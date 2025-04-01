@@ -8,7 +8,6 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
 
-
 class ShowSubjects extends Component
 {
     use WithPagination;

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CapacitationController;
 use App\Http\Controllers\Admin\GroupController;
+use App\Http\Controllers\Admin\InscriptionController;
 use App\Http\Controllers\Admin\ProfessorController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Invoice\StudentController as InvoiceStudentController;
@@ -30,6 +31,13 @@ Route::middleware([
         ->name('admin.subject.index');
     Route::get('/admin/group', [GroupController::class, 'index'])
         ->name('admin.group.index');
+    Route::get('/admin/inscription', [InscriptionController::class, 'index'])
+        ->name('admin.inscription.index');
+
+
+
+
+
     Route::get('/invoice/student', [InvoiceStudentController::class, 'index'])
         ->name('invoice.student.index');
 

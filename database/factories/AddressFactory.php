@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\Admin;
+namespace Database\Factories;
 
 use App\Models\Canton;
 use Illuminate\Database\Eloquent\Factories\Factory;

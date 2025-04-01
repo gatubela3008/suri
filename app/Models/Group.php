@@ -44,7 +44,7 @@ class Group extends Model
         return $this->hasManyThrough(User::class, Student::class);
     }
 
-    public function schedules() :BelongsToMany
+    public function schedules() : BelongsToMany
     {
         return $this->belongsToMany(Schedule::class)
             ->withTimestamps();
